@@ -5,7 +5,7 @@ Repo of all of my implementations of the various Data Structures and Algorithms 
 - Array
 - ArrayList (Dynamic Array)
 - LinkedList (Singly, Doubly, Circular Singly, Circular Doubly)
-- Stack (Array-based)
+- Stack (Array-based, LinkedList-based)
 
 
 #List of Algorithms Implemented:

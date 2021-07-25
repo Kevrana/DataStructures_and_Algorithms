@@ -1,6 +1,5 @@
 package com.array.stack;
 
-import java.util.Arrays;
 import java.util.EmptyStackException;
 
 // Stack Data structure array implementation following LIFO principle 
