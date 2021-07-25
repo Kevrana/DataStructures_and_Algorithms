@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.EmptyStackException;
 
 // Stack Data structure array implementation following LIFO principle 
-// with dynamic resizing and clear
+// with dynamic resizing
 public class Stack {
 
 	private int size; // counter for current # of elements in stack array
