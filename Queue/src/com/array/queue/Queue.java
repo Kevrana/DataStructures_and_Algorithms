@@ -22,7 +22,7 @@ public class Queue {
 	}
 	
 	public boolean isFull() {
-		return size == queue.length;
+		return size == queue.length-1;
 	}
 	
 	public int size() {
@@ -87,7 +87,7 @@ public class Queue {
 		return toDelete;
 	}
 	
-	
+	// access
 	public int peek() {
 		if(isEmpty())
 			throw new NoSuchElementException();
