@@ -3,7 +3,6 @@ package com.array.queue;
 import java.util.NoSuchElementException;
 
 // Queue Data Structure implementation using an Array following FIFO principle
-
 public class Queue {
 	private int head; // front of the queue, where we remove from
 	private int tail; // rear of the queue, where we add to
@@ -22,7 +21,7 @@ public class Queue {
 	}
 	
 	public boolean isFull() {
-		return size == queue.length-1;
+		return size == queue.length; // or can be rear == queue.length-1
 	}
 	
 	public int size() {
@@ -99,7 +98,7 @@ public class Queue {
 		
 		Queue queue = new Queue(10);
 		
-		System.out.println("****************ENQUE TEST*******************");
+		System.out.println("****************ENQUEUE TEST*******************");
 		// enqueuing
 		queue.enqueue(10);
 		queue.display();
@@ -143,7 +142,7 @@ public class Queue {
 		System.out.println("Front of queue: " + queue.peek());
 		
 		System.out.println();
-		System.out.println("*****************DEENQUE TEST*************");
+		System.out.println("*****************DEQUEUE TEST*************");
 		// dequeuing
 		System.out.println();
 		System.out.println("Removed from queue: " + queue.dequeue());
@@ -182,7 +181,7 @@ public class Queue {
 		System.out.println("Rear: " + queue.tail);
 
 		System.out.println();
-		System.out.println("*********ENQUE AGAIN AFTER RESETING TEST************");
+		System.out.println("*********ENQUEUE AGAIN AFTER RESETING TEST************");
 		queue.enqueue(60);
 		queue.enqueue(70);
 		queue.enqueue(80);
