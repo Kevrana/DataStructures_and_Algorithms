@@ -1,9 +1,10 @@
-package com.array.queue;
+package com.array.circular.queue;
 
 import java.util.NoSuchElementException;
 
-// Queue Data Structure implementation using an Array following FIFO principle
+
 public class Queue {
+	
 	private int head; // front of the queue, where we remove from
 	private int tail; // rear of the queue, where we add to
 	private int size; // the current number of items in the queue
@@ -15,17 +16,34 @@ public class Queue {
 		queue = new int[Capacity];
 	}
 	
+	
+	
+	
+	
 	// helper methods
-	public boolean isEmpty() {
-		return head < 0;
-	}
-	
 	public boolean isFull() {
-		return size == queue.length; // or can be rear == queue.length-1
+		return (tail + 1) % queue.length == head;
+	}
+
+	public boolean isEmpty() {
+		return head == -1; // or head < 0 or tail < 0 or tail == -1
 	}
 	
-	public int size() {
-		return size;
+	public void resize() {
+		int newCapacity = queue.length*2;
+		int[] tempArr = new int[newCapacity];
+		
+		int i = 0; // used to traverse  the new array
+		int j = head; // used to traverse  old array
+		
+		do { 
+			tempArr[i++] = queue[j];
+			j = (j+1) % queue.length;	// will eventually == head
+		}while( j != head);
+		
+		head = 0;
+		tail = queue.length-1; // b/c old arr is full,tail is last index of old arr
+		queue = tempArr;
 	}
 	
 	public void display() {	
@@ -52,52 +70,56 @@ public class Queue {
 			System.out.println("Stack empty! Try pushing something in first?");
 		}
 	}
-
 	
-	
-	// insert
-	public void enqueue(int data) {
-		if(isFull()) {
-			throw new IllegalStateException();
-		}
-		else {
-			if(isEmpty())
-				head++;
-			queue[++tail] = data;
-			size++;
-		}
+	public int size() {
+		return size;
 	}
 	
 	
-	// delete
+	
+	
+	// insert -> O(n) because of resize()
+	public void enqueue(int data) {
+		if(isFull())
+			resize();
+		else if(isEmpty())
+			head++;
+		tail  = (tail + 1) % queue.length;
+		queue[tail] = data;
+		size++;
+	}
+	
+	// remove
 	public int dequeue() {
-		if(isEmpty()) {
+		
+		if(isEmpty())
 			throw new NoSuchElementException();
-		}
 		int toDelete = queue[head];
 		size--;
+		// if the head we are removing is also tail
 		if(head == tail) {
 			queue[head] = 0;
-			head = tail = -1;
+			head = tail = -1; // then, reset queue to indicate its empty
 			size = 0;
 		}else {
-			queue[head++] = 0;
-			
+			queue[head] = 0;
+			head = (head+1) % queue.length;
 		}
-		return toDelete;
+		return toDelete;	
 	}
 	
-	// access
+	// peek
 	public int peek() {
 		if(isEmpty())
 			throw new NoSuchElementException();
 		return queue[head];
 	}
 	
-
+	
+	
+	
 	public static void main(String[] args) {
-		
-		Queue queue = new Queue(10);
+Queue queue = new Queue(10);
 		
 		System.out.println("****************ENQUEUE TEST*******************");
 		// enqueuing
@@ -167,31 +189,34 @@ public class Queue {
 		System.out.println("Front: " + queue.head);
 		System.out.println("Rear: " + queue.tail);
 		
-		System.out.println();
-		System.out.println("Removed from queue: " + queue.dequeue());
-		queue.display();
-		System.out.println("Size: " + queue.size());
-		System.out.println("Front: " + queue.head);
-		System.out.println("Rear: " + queue.tail);
-		
-		System.out.println();
-		System.out.println("Removed from queue: " + queue.dequeue());
-		queue.display();
-		System.out.println("Size: " + queue.size());
-		System.out.println("Front: " + queue.head);
-		System.out.println("Rear: " + queue.tail);
+
 
 		System.out.println();
-		System.out.println("*********ENQUEUE AGAIN AFTER RESETING TEST************");
+		System.out.println("*********ENQUEUE AGAIN AFTER DEQUEUING SOME TEST************");
 		queue.enqueue(60);
 		queue.enqueue(70);
 		queue.enqueue(80);
+		queue.enqueue(82);
+		queue.enqueue(83);
+		queue.enqueue(84);
+		queue.enqueue(85);
+		queue.enqueue(86);
 		
 		queue.display();
 		System.out.println("Size: " + queue.size());
 		System.out.println("Front: " + queue.head);
 		System.out.println("Rear: " + queue.tail);
 		
+		
+		System.out.println();
+		System.out.println("*********ENQUEUE AGAIN AFTER FULL QUEUE TEST************");
+
+		queue.enqueue(87);
+		
+		queue.display();
+		System.out.println("Size: " + queue.size());
+		System.out.println("Front: " + queue.head);
+		System.out.println("Rear: " + queue.tail);
 	}
 
 }
