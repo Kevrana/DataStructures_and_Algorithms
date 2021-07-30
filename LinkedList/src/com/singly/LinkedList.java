@@ -39,7 +39,7 @@ public class LinkedList {
 		}	
 	}
 	
-	
+	// prepend method
 	public void addFirst(int data) {
 		Node newNode = new Node(data);
 		
@@ -56,7 +56,7 @@ public class LinkedList {
 		}
 	}
 	
-	
+	// append method, same as our add method above
 	public void addLast(int data) {
 		Node newNode = new Node(data);
 		
@@ -79,9 +79,10 @@ public class LinkedList {
 		}	
 	}
 	
-	
+	// insert in the position after the specified index
 	public void addAfter(int index, int data) {
 		
+		// conditional check for null or  out of bounds
 		if(head == null || index >= counter || index < 0) {
 			System.out.println("Can't add. List empty or index out of bound.");
 			return;
@@ -112,6 +113,8 @@ public class LinkedList {
 	
 	
 	// deletes
+	
+	// remove node from beginning and return it
 	public Node removeStart() {
 		if(head != null) {
 			Node toDelete = head;
@@ -122,7 +125,7 @@ public class LinkedList {
 		return null;
 	}
 	
-	
+	// remove node from end and return it
 	public Node removeLast() {
 		Node curr = head;
 		
@@ -147,6 +150,7 @@ public class LinkedList {
 	}
 	
 	
+	// remove node after the specified index and return it
 	public Node removeAfter(int index) {
 		
 		Node curr = head;
@@ -169,6 +173,7 @@ public class LinkedList {
 		return toDelete;
 	}
 	
+	// remove Node with the specified data and return it
 	public Node remove(int data) {
 		
 		Node toDelete = null;
@@ -197,6 +202,8 @@ public class LinkedList {
 	}
 	
 	// access
+	
+	// get the data at specified index
 	public int get(int index) {
 		
 		if(head == null || index >= counter || index < 0) {
@@ -222,10 +229,12 @@ public class LinkedList {
 
 	}
 	
+	// checks if list is empty
 	public boolean isEmpty() {
 		return (head == null);
 	}
 	
+	// displays the list
 	public void printList() {
 		Node curr = head;
 		
@@ -238,11 +247,12 @@ public class LinkedList {
 		
 	}
 	
+	// returns current size of list
 	public int size() {
 		return counter;
 	}
 	
-	// search
+	// searches list for specified data
 	public boolean contains(int data) {
 		if(head == null)
 			return false;
@@ -257,6 +267,8 @@ public class LinkedList {
 		return false;
 	}
 	
+	
+	// execution
 	public static void main(String[] args) {
 		
 		LinkedList ll = new LinkedList();
@@ -289,7 +301,7 @@ public class LinkedList {
 		
 		
 		// get()
-		System.out.println("The value at index 4: " + ll.get(6));
+		System.out.println("The value at index 4: " + ll.get(4));
 		
 		
 		

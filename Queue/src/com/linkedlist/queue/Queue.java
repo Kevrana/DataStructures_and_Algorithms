@@ -25,14 +25,17 @@ public class Queue {
 
 	 
 	// helper methods
+	// checks to see if queue is empty
 	public boolean isEmpty() {
 		return head == null;
 	}
 	
+	// returns the current number of items in queue
 	public int size() {
 		return size;
 	}
 	
+	// displays the queue in an easy to follow output
 	public void display() {
 		
 		if(!isEmpty()) {
@@ -61,7 +64,7 @@ public class Queue {
 	
 	
 	
-	// insert
+	// insert - adds item to queue
 	public void enqueue(int data) {
 		Node newNode = new Node(data);
 		
@@ -74,7 +77,7 @@ public class Queue {
 		size++;
 	}
 	
-	// remove
+	// remove - removes item from head.
 	public int dequeue() {
 		if(!isEmpty()) {
 			int toDelete = head.data;
@@ -85,7 +88,7 @@ public class Queue {
 		throw new NoSuchElementException("Cannot dequeue b/c queue is in fact... empty!");
 	}
 	
-	// access
+	// access - returns the value at head without removing it
 	public int peek() {
 		if(isEmpty())
 			throw new NoSuchElementException("Cannot dequeue b/c queue is in fact... empty!");

@@ -21,6 +21,7 @@ public class CircularDoublyLinkedList {
 	int counter;
 	
 	//inserts
+	// adds node at end of list and updates cycle
 	public void append(int data) {
 		Node newNode = new Node(data);
 		
@@ -42,6 +43,7 @@ public class CircularDoublyLinkedList {
 		
 	}
 	
+	// adds node at beginning of list and updates cycle
 	public void prepend(int data) {
 		Node newNode = new Node(data);
 		
@@ -63,6 +65,7 @@ public class CircularDoublyLinkedList {
 		
 	}
 	
+	// adds Node after specified index and updates cycle
 	public void addAfter(int index, int data) {
 		Node newNode = new Node(data);
 		Node curr = head;
@@ -100,6 +103,8 @@ public class CircularDoublyLinkedList {
 	
 	
 	// deletes
+	
+	// deletes node at end, updates cycle, and returns node
 	public Node removeLast() {
 		Node toDelete = head;
 		
@@ -126,6 +131,7 @@ public class CircularDoublyLinkedList {
 		return toDelete;
 	}
 	
+	// deletes node at beginning, updates cycle, and returns node
 	public Node removeFirst() {
 		Node toDelete = head;
 		if(head == null || head.next == head) {
@@ -140,6 +146,7 @@ public class CircularDoublyLinkedList {
 		return toDelete;
 	}
 	
+	// deletes node after specified index, updates cycle, and returns node
 	public Node removeAfter(int index) {
 		if(isEmpty()) {
 			return null;
@@ -187,6 +194,7 @@ public class CircularDoublyLinkedList {
 	
 	
 	// access
+	// gets the data at the specified index and returns it
 	public int get(int index) {
 		
 		if(head == null || index >= counter || index < 0) {
@@ -211,6 +219,7 @@ public class CircularDoublyLinkedList {
 	}
 	
 	// search
+	// checks list if it has the specified data
 	public boolean contains(int data) {
 		Node curr = head;
 		
@@ -234,14 +243,17 @@ public class CircularDoublyLinkedList {
 	}
 	
 	//helpers
+	// checks if list is empty
 	public boolean isEmpty() {
 		return (head==null);
 	}
 	
+	// returns the current number of items in list
 	public int size() {
 		return counter;
 	}
 	
+	// displays list
 	public void printList() {
 		Node curr = head;
 		

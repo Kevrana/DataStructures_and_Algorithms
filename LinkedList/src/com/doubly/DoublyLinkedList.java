@@ -20,10 +20,13 @@ public class DoublyLinkedList {
 	
 	
 	// helper methods
+	
+	//checks if list is empty
 	public boolean isEmpty() {
 		return (head == null);
 	}
 	
+	// displays list
 	public void printList() {
 		Node curr = head;
 		
@@ -36,11 +39,13 @@ public class DoublyLinkedList {
 		
 	}
 	
+	// returns current number of items in list
 	public int size() {
 		return counter;
 	}
 	
 	// access
+	// gets the data for specified index
 	public int get(int index) {
 			
 			if(head == null || index >= counter || index < 0) {
@@ -65,6 +70,7 @@ public class DoublyLinkedList {
 		}
 	
 	// search
+	// searches list for specified data
 	public boolean contains(int data) {
 		if(head == null)
 			return false;
@@ -80,6 +86,7 @@ public class DoublyLinkedList {
 	}
 	
 	// inserts
+	// inserts node to end of list
 	public void append(int data) {
 		Node newNode = new Node(data);
 		
@@ -100,6 +107,7 @@ public class DoublyLinkedList {
 		
 	}
 	
+	// inserts node at beginning of list
 	public void prepend(int data) {
 		Node newNode = new Node(data);
 		
@@ -114,7 +122,9 @@ public class DoublyLinkedList {
 			counter++;
 		}
 	}
-
+	
+	
+	// adds node after the specified index in list
 	public void addAfter(int index, int data) {
 		
 		if(head == null || index >= counter || index < 0) {
@@ -148,7 +158,7 @@ public class DoublyLinkedList {
 	}
 	
 	// deletes
-	
+	// removes first node and returns it
 	public Node removeFirst() {
 		Node toDelete = head;
 		
@@ -164,6 +174,7 @@ public class DoublyLinkedList {
 		return toDelete;
 	}
 	
+	// removes last node and returns it
 	public Node removeLast() {
 		Node toDelete = head;
 		
@@ -180,6 +191,7 @@ public class DoublyLinkedList {
 		return toDelete;
 	}
 	
+	// removes Node after specified data and returns it
 	public Node removeAfter(int data) {
 		Node toDelete = head;
 		

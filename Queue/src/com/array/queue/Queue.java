@@ -16,18 +16,22 @@ public class Queue {
 	}
 	
 	// helper methods
+	//checks to see if queue is empty
 	public boolean isEmpty() {
 		return head < 0;
 	}
 	
+	// checks to see if queue is full
 	public boolean isFull() {
 		return size == queue.length; // or can be rear == queue.length-1
 	}
 	
+	// returns the current number of items in queue
 	public int size() {
 		return size;
 	}
 	
+	// displays the queue in an easy to follow output
 	public void display() {	
 		if(!isEmpty()) {
 			System.out.println("Queue Array: ");
@@ -55,7 +59,7 @@ public class Queue {
 
 	
 	
-	// insert
+	// inserts item to queue
 	public void enqueue(int data) {
 		if(isFull()) {
 			throw new IllegalStateException();
@@ -69,7 +73,7 @@ public class Queue {
 	}
 	
 	
-	// delete
+	// deletes item from head of queue
 	public int dequeue() {
 		if(isEmpty()) {
 			throw new NoSuchElementException();
@@ -87,7 +91,7 @@ public class Queue {
 		return toDelete;
 	}
 	
-	// access
+	// access - returns value at head of queue without removing it
 	public int peek() {
 		if(isEmpty())
 			throw new NoSuchElementException();

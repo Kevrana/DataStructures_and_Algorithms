@@ -9,15 +9,17 @@ public class Array {
 		items = new int[size];
 	}
 	
-	
+	// display method that traverses the array and prints the data of that element
 	public void print() {
 		for(int i = 0; i < count; i++) {
 			System.out.println(items[i]);
 		}
 	}
 	
+	// insert method to append item to array
 	public void insert(int item) {
 		
+		// resizes array with twice the previous capacity. then adds the new item
 		if(items.length == count) {
 			
 			int[] newItems = new int[count*2];
@@ -30,11 +32,15 @@ public class Array {
 		items[count++] = item;	
 	}
 	
+	// remove method to remove element at specified index
 	public void removeAt(int index) {
 		
+		// if given index is  out of bound or > than number of items currently.
 		if(index < 0 || index >= count)
 			throw new IllegalArgumentException();
-//		//one way
+
+		
+//		//alternate way of performing below
 //		int[] newItems = new int[count-1];
 //		
 //		for(int i = 0, k = 0; i < count; i++) {
@@ -53,6 +59,7 @@ public class Array {
 		count--;
 	}
 
+	// method to find index of a particular value
 	public int indexOf(int item) {
 		
 		for(int i = 0; i < count; i++) {

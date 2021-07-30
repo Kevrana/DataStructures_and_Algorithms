@@ -17,14 +17,17 @@ public class Stack {
 	}
 	
 	// helper methods
+	// checks to see if stack is full
 	public boolean isFull() {
 		return size == numStack.length;
 	}
 	
+	// checks to see if stack is empty
 	public boolean isEmpty() {
 		return top < 0;
 	}
 	
+	// resizes stack array with double the previous capacity
 	public void increaseCapacity() {
 		int newCapacity = numStack.length*2;
 		int[] tempArr = new int[newCapacity];
@@ -34,6 +37,7 @@ public class Stack {
 		numStack = tempArr;
 	}
 	
+	// resizes stack array with 1 less the previous capacity
 	public void decreaseCapacity() {
 		int newCapacity = numStack.length-1;
 		int[] tempArr = new int[newCapacity];
@@ -43,6 +47,7 @@ public class Stack {
 		numStack = tempArr;
 	}
 	
+	// displays the stack in an easy to read output
 	public void display() {
 		
 		if(!isEmpty()) {
@@ -74,7 +79,7 @@ public class Stack {
 	}
 	
 	
-	// insert
+	// insert - adds item to the stack and if full, resize
 	public void push(int data) {
 		if(isFull()) {
 			increaseCapacity(); // will make push() become O(n) 
@@ -84,6 +89,7 @@ public class Stack {
 	}
 	
 	// access (to top, since random access )
+	// gets value of top of stack without removing it
 	public int peek() {
 		if(!isEmpty()) {
 			return numStack[top];
@@ -91,7 +97,7 @@ public class Stack {
 		throw new EmptyStackException();
 	}
 	
-	// delete
+	// delete - removes item off the top of stack and resizes
 	 public int pop(){
 		 if(!isEmpty()) {
 			 int poppedData = peek();

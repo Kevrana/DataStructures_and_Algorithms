@@ -20,10 +20,12 @@ public class Stack {
 	
 	
 	// helper methods
+	// checks if stack is empty
 	public boolean isEmpty() {
 		return top == null;
 	}
 	
+	// displays stack in an easy to read output
 	public void display() {
 		Node curr = top;
 		if(!isEmpty()) {
@@ -47,11 +49,12 @@ public class Stack {
 		
 	}
 	
+	// returns the current number of items in the stack
 	public int size() {
 		return size;
 	}
 	
-	// insert
+	// insert - adds an item to top of stack
 	public void push(int data) {
 		Node newNode = new Node(data);
 		newNode.next = top;
@@ -59,7 +62,7 @@ public class Stack {
 		size++;
 	}
 	
-	// access
+	// access - gets the value at top of stack without removing it
 	public int peek() {
 		if(!isEmpty()) {
 			return top.data;
@@ -67,7 +70,7 @@ public class Stack {
 		throw new EmptyStackException();
 	}
 	
-	// delete
+	// delete - removes item from top of stack
 	public int pop() {
 		if(!isEmpty()){
 			int toDelete = top.data;

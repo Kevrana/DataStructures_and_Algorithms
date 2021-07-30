@@ -40,6 +40,7 @@ public class CircularLinkedList {
 		
 	}
 	
+	// adds node to the beginning of the list and updates cycle
 	public void prepend(int data) {
 		Node newNode = new Node(data);
 		
@@ -57,6 +58,7 @@ public class CircularLinkedList {
 		}
 	}
 	
+	// adds node after specified index and updates cycle
 	public void addAfter(int index, int data) {
 		Node newNode = new Node(data);
 		Node curr = head;
@@ -89,6 +91,7 @@ public class CircularLinkedList {
 	
 	
 	// deletes
+	// removes last node and updates cycle
 	public Node removeLast() {
 		Node toDelete = head;
 		
@@ -113,6 +116,7 @@ public class CircularLinkedList {
 		return toDelete;
 	}
 	
+	// removes first node and updates cycle
 	public Node removeFirst() {
 		Node toDelete = head;
 		if(head == null || head.next == head) {
@@ -126,6 +130,7 @@ public class CircularLinkedList {
 		return toDelete;
 	}
 	
+	// removes node after specified index and updates cycle
 	public Node removeAfter(int index) {
 		
 		if(isEmpty()) {
@@ -170,6 +175,7 @@ public class CircularLinkedList {
 	
 	
 	// search
+	// checks to see if list has the specified data
 	public boolean contains(int data) {
 		Node curr = head;
 		
@@ -194,6 +200,7 @@ public class CircularLinkedList {
 	
 	
 	// access
+	// gets the data of the specified index
 	public int get(int index) {
 		
 		if(head == null || index >= counter || index < 0) {
@@ -221,14 +228,17 @@ public class CircularLinkedList {
 	
 	
 	// helpers
+	// checks if list is empty
 	public boolean isEmpty() {
 		return (head == null);
 	}
 	
+	// returns the current number of items in the list
 	public int size() {
 		return counter;
 	}
 	
+	// displays list
 	public void printList() {
 		Node curr = head;
 		

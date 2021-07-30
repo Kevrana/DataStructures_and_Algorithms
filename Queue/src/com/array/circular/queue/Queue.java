@@ -21,14 +21,18 @@ public class Queue {
 	
 	
 	// helper methods
+	
+	// checks if queue is full
 	public boolean isFull() {
 		return (tail + 1) % queue.length == head;
 	}
 
+	// checks if queue is empty
 	public boolean isEmpty() {
 		return head == -1; // or head < 0 or tail < 0 or tail == -1
 	}
 	
+	// resizes queue if it gets full so it can add more items to it
 	public void resize() {
 		int newCapacity = queue.length*2;
 		int[] tempArr = new int[newCapacity];
@@ -46,6 +50,7 @@ public class Queue {
 		queue = tempArr;
 	}
 	
+	// displays queue in an easy to follow output
 	public void display() {	
 		if(!isEmpty()) {
 			System.out.println("Queue Array: ");
@@ -71,6 +76,7 @@ public class Queue {
 		}
 	}
 	
+	// returns the current number of items in queue
 	public int size() {
 		return size;
 	}
@@ -78,7 +84,7 @@ public class Queue {
 	
 	
 	
-	// insert -> O(n) because of resize()
+	// insert item to queue ->normally o(1), but O(n) because of resize()
 	public void enqueue(int data) {
 		if(isFull())
 			resize();
@@ -89,7 +95,7 @@ public class Queue {
 		size++;
 	}
 	
-	// remove
+	// remove item from head of queue
 	public int dequeue() {
 		
 		if(isEmpty())
@@ -108,7 +114,7 @@ public class Queue {
 		return toDelete;	
 	}
 	
-	// peek
+	// peek - returns value at head without removing
 	public int peek() {
 		if(isEmpty())
 			throw new NoSuchElementException();
