@@ -15,7 +15,7 @@ public class Exercise16 {
 		
 		int len = removeDuplicates(numArr);
 		
-		System.out.print("After removing duplicates: "); // sound print out 1, 2, 3, 4, 5
+		System.out.print("After removing duplicates: "); // should print out 1, 2, 3, 4, 5
 		
 		for(int i = 0; i < len; i++) {
 			System.out.print(numArr[i] + ", ");

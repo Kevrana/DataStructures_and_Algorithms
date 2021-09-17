@@ -10,7 +10,7 @@ public class Exercise5 {
 		
 		String[] strArr = {"Happy", "Birthday", "Apple", "Sauce", "Kevin"};
 		
-		String str = "App";
+		String str = "Apple";
 		
 		System.out.println("Array: " + Arrays.toString(strArr));
 		System.out.println("does it contain "+ str + ": " + contains(strArr, str) );
