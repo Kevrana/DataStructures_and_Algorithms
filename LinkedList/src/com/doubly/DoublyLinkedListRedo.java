@@ -1,147 +1,101 @@
 package com.doubly;
 
-class Node{
-	int data;
-	Node prev;
-	Node next;
-	
-	Node(int data){
-		this.data = data;
-		this.next = null;
-		this.prev = null;
-	}
-}
 
-public class DoublyLinkedList {
-	Node head;
-	int counter;
+public class DoublyLinkedListRedo {
+	
+	// node Class
+	static class Node {
+		int data;
+		Node next;
+		Node prev;
+		
+		Node(int data){
+			this.data = data;
+			this.next = null;
+			this.prev = null;
+		}
+	}
+
+	Node head; // pointer reference to the head of the list, initially it is pointing  to null
+	int size; // size counter for the number of nodes in the list
 	
 	
 	
+	/*** HELPER METHODS **************/
 	
-	// helper methods
-	
-	//checks if list is empty
-	public boolean isEmpty() {
-		return (head == null);
+	// returns current size of list
+	public int size() {
+		return size;
 	}
 	
-	// displays list
+	
+	// checks to see if list is Empty
+	public boolean isEmpty() {
+		return head == null;
+	}
+	
+	
+	// prints the list
 	public void printList() {
 		Node curr = head;
-		
-		System.out.print("Current list: ");
+		System.out.print("Current List: ");
 		while(curr != null) {
 			System.out.print(curr.data + ", ");
 			curr = curr.next;
-		}	
+		}
 		System.out.println();
-		
 	}
 	
-	// returns current number of items in list
-	public int size() {
-		return counter;
-	}
 	
-	// access
-	// gets the data for specified index
-	public int get(int index) {
-			
-			// if list is empty, or index is > than the index of last node's in list or index is < 0
-			if(head == null || index > counter-1 || index < 0) {
-				return -1;
-			}
-			
-			Node curr = head;
-			int position = 0;
-			
-			while(curr.next != null) {
-				if(position == index) {
-					return curr.data;
-				}
-				curr = curr.next;
-				position++;
-			}
-			
-			if (curr.next == null) {
-				if(position == index)
-					return curr.data;
-			}
-			return -1;
-		}
 	
-	// search
-	// searches list for specified data
-	public boolean contains(int data) {
-		if(head == null)
-			return false;
-		
-		Node curr = head;
-		while(curr.next != null) {
-			if(curr.data == data) {
-				return true;
-			}
-			curr = curr.next;
-		}
-		
-		if(curr.next == null) {
-			if(curr.data == data)
-				return true;
-		}
-		
-		return false;
-	}
+	/*** Insert METHODS **************/
 	
-	// inserts
-	// inserts node to end of list
+	// append to list - add to tail end of the list
 	public void append(int data) {
 		Node newNode = new Node(data);
 		
-		if(head == null) {
+		if(isEmpty()) {
 			head = newNode;
-			counter++;
+			size++;
 		}
 		else {
 			Node curr = head;
-			
 			while(curr.next != null) {
 				curr = curr.next;
 			}
 			curr.next = newNode;
 			newNode.prev = curr;
-			counter++;
+			size++;
 		}
-		
 	}
 	
-	// inserts node at beginning of list
+	
+	// prepend to list - add to the head of the list
 	public void prepend(int data) {
 		Node newNode = new Node(data);
 		
-		if(head == null) {
+		if(isEmpty()) {
 			head = newNode;
-			counter++;
+			size++;
 		}
 		else {
 			newNode.next = head;
 			head.prev = newNode;
 			head = newNode;
-			counter++;
+			size++;
 		}
 	}
 	
-	
-	// adds node after the specified index in list
+	// add after given Node index
 	public void addAfter(int index, int data) {
 		
-		if(head == null || index > counter-1 || index < 0) {
-			System.out.println("Can't add. List empty or index out of bound.");
+		if(isEmpty() || index > size-1 || index < 0) {
+			System.out.println("Can't add, either list is empty or given index is out of bounds of the list.");
 			return;
 		}
 		
-		Node curr = head;
 		Node newNode = new Node(data);
+		Node curr = head;
 		int position = 0;
 		
 		while(curr.next != null) {
@@ -150,8 +104,137 @@ public class DoublyLinkedList {
 				newNode.next = curr.next;
 				curr.next = newNode;
 				newNode.prev = curr;
-				counter++;
+				size++;
+			}
+			curr = curr.next;
+			position++;
+		}
+		if(curr.next == null) {
+			if(position == index) {
+				curr.next = newNode;
+				newNode.prev = curr;
+				size++;
+			}
+		}
+	}
+	
+	
+	/*** Delete METHODS **************/
+	
+	// remove first
+	public Node removeFirst() {
+		Node toDelete = head;
+		
+		if(isEmpty() || head.next == null) {
+			head = null;
+			size--;
+			return toDelete;
+		}
+		
+		head = head.next;
+		head.prev = null;
+		size--;
+		return toDelete;
+	}
+	
+	// remove last
+	public Node removeLast() {
+		
+		Node toDelete = head;
+		
+		if(isEmpty() || head.next == null) {
+			head = null;
+			size--;
+			return toDelete;
+		}
+			
+		while(toDelete.next != null) {
+			toDelete = toDelete.next;
+		}
+		
+		// Once we have the last node stored in toDelete, we disconnect it from the list
+		toDelete.prev.next = null;
+		size--;	
+		return toDelete;
+	}
+	
+	
+	
+	
+	// remove after given data
+	public Node removeAfter(int data) {
+		Node toDelete = head;
+		
+		while(toDelete != null) {
+			if(toDelete.data == data) {
+				toDelete = toDelete.next;
 				break;
+			}
+			toDelete = toDelete.next;
+		}
+		
+		if(toDelete != null) {
+			if(toDelete.next != null) {
+				toDelete.next.prev = toDelete.prev;
+			}
+			toDelete.prev.next = toDelete.next;
+			size--;
+		}
+		return toDelete;
+	}
+	
+	
+
+	
+	/*** Search METHOD **************/
+	
+	// checks to see if list contains given data
+	public boolean contains(int data) {
+		
+		Node curr = head;
+		
+		if(head == null)
+			return false;
+		
+		if(head.data == data) {
+			return true;
+		}
+		
+		while(curr.next != null) {
+			if(curr.data == data) {
+				return true;
+			}
+			curr = curr.next;
+		}
+		
+		if(curr.next == null) {
+			if(curr.data == data) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	
+	
+	
+	/*** Access METHOD **************/
+	
+	// checks through list and returns the data of the given Node's index.
+	
+	public int get(int index) {
+		
+		if(head == null || index > size-1 || index < 0) {
+			return -1;
+		}
+		
+		Node curr = head;
+		int position = 0;
+		
+		while(curr.next != null) {
+			if(position == index) {
+				return curr.data;
 			}
 			curr = curr.next;
 			position++;
@@ -159,78 +242,30 @@ public class DoublyLinkedList {
 		
 		if(curr.next == null) {
 			if(position == index) {
-				curr.next = newNode;
-				newNode.prev = curr;
-				counter++;
-			} 
-			
-		}
-	}
-	
-	// deletes
-	// removes first node and returns it
-	public Node removeFirst() {
-		Node toDelete = head;
-		
-		if(head == null || head.next == null) {
-			head = null;
-			counter --;
-			return toDelete;
-		}
-		
-		head = head.next;
-		head.prev = null;
-		counter--;
-		return toDelete;
-	}
-	
-	// removes last node and returns it
-	public Node removeLast() {
-		Node toDelete = head;
-		
-		if(head == null || head.next == null) {
-			head = null;
-			counter--;
-			return toDelete;
-		}
-		while(toDelete.next != null) {
-			toDelete = toDelete.next;
-		}
-		toDelete.prev.next = null;
-		counter--;
-		return toDelete;
-	}
-	
-	// removes Node after specified data and returns it
-	public Node removeAfter(int data) {
-		Node toDelete = head;
-		
-		while(toDelete != null) {
-			if( toDelete.data == data) {
-				toDelete = toDelete.next;
-				break;
+				return curr.data;
 			}
-			toDelete = toDelete.next;
-		}
-		if( toDelete != null) {
-			if(toDelete.next != null) {
-				toDelete.next.prev = toDelete.prev;
-			}
-			toDelete.prev.next = toDelete.next;
 		}
 		
-		counter--;
-		return toDelete;
+		return -1;
 	}
-
 	
 	
 	
 	
-
-	// execution
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static void main(String[] args) {
-		DoublyLinkedList dll = new DoublyLinkedList();
+		
+		DoublyLinkedListRedo dll = new DoublyLinkedListRedo();
 		System.out.println("List empty? " + dll.isEmpty());
 		System.out.println("Size of list: " + dll.size());
 		
@@ -263,6 +298,8 @@ public class DoublyLinkedList {
 		System.out.println("Remove item after Node with value '1': " + dll.removeAfter(1).data);
 		dll.printList();
 		System.out.println("Size of list: " + dll.size());
+		
+		
 		
 		
 	}

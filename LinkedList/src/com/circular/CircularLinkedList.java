@@ -163,11 +163,13 @@ public class CircularLinkedList {
 		
 		
 		if(curr.next == head) {
-			toDelete = curr.next;
-			curr.next = head.next;
-			head = head.next;
-			counter--;
-			return toDelete;
+			if(position == index) {
+				toDelete = curr.next;
+				curr.next = head.next;
+				head = head.next;
+				counter--;
+				return toDelete;
+			}
 		}
 		
 		return toDelete;

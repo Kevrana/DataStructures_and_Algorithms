@@ -181,12 +181,14 @@ public class CircularDoublyLinkedList {
 		
 		
 		if(curr.next == head) {
-			toDelete = curr.next;
-			curr.next = head.next;
-			head.next.prev = curr;
-			head = head.next;
-			counter--;
-			return toDelete;
+			if(position == index) {
+				toDelete = curr.next;
+				curr.next = head.next;
+				head.next.prev = curr;
+				head = head.next;
+				counter--;
+				return toDelete;
+			}
 		}
 		
 		return toDelete;
@@ -213,7 +215,8 @@ public class CircularDoublyLinkedList {
 		}
 		
 		if (curr.next == head) {
-			return curr.data;
+			if(position == index)
+				return curr.data;
 		}
 		return -1;
 	}

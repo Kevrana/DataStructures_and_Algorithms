@@ -86,12 +86,30 @@ public class Stack {
 		
 		Stack stack = new Stack();
 		
+		// display
+		stack.display();
+		System.out.println();
+		
+		
 		//pushing
 		stack.push(1);
+		stack.display();
+		System.out.println();
+		
 		stack.push(2);
+		stack.display();
+		System.out.println();
+		
 		stack.push(3);
+		stack.display();
+		System.out.println();
+		
 		stack.push(4);
+		stack.display();
+		System.out.println();
+		
 		stack.push(5);
+		
 		
 		// display
 		stack.display();

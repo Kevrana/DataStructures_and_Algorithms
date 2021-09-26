@@ -83,8 +83,8 @@ public class LinkedList {
 	public void addAfter(int index, int data) {
 		
 		// conditional check for null or  out of bounds
-		if(head == null || index >= counter || index < 0) {
-			System.out.println("Can't add. List empty or index out of bound.");
+		if(head == null || index > counter-1 || index < 0) {
+			System.out.println("Can't add. Reason: List empty or given index out of bound.");
 			return;
 		}
 		
@@ -98,7 +98,7 @@ public class LinkedList {
 				newNode.next = curr.next;
 				curr.next = newNode;
 				counter++;
-				break;
+				return;
 			}
 			curr = curr.next;
 			position++;
@@ -160,7 +160,7 @@ public class LinkedList {
 		int position = 0;
 		
 		while(curr != null && curr.next !=null) {
-			if(position == index && curr.next !=null) {
+			if(position == index) {
 				toDelete = curr.next;
 				curr.next = toDelete.next;
 				counter--;
@@ -222,7 +222,9 @@ public class LinkedList {
 		}
 		
 		if (curr.next == null) {
-			return curr.data;
+			if(position == index) {
+				return curr.data;
+			}
 		}
 	
 		return -1;
@@ -264,6 +266,13 @@ public class LinkedList {
 			}
 			curr = curr.next;
 		}
+		
+		if(curr.next == null) {
+			if(curr.data == data) {
+				return true;
+			}
+		}
+		
 		return false;
 	}
 	
@@ -311,44 +320,44 @@ public class LinkedList {
 		ll.addAfter(2, 66);
 		ll.printList();
 		System.out.println("Size of the list now: " + ll.size());
-//		
-//		
-//		//contains()
-//		System.out.println();
-//		System.out.println("Does it contain 66?  " + ll.contains(66));
-//		ll.printList();
+		
+		
+		//contains()
+		System.out.println();
+		System.out.println("Does it contain 66?  " + ll.contains(66));
+		ll.printList();
 		
 		
 		
 		
 		
-//		// remove(66)
-//		System.out.println();
-//		System.out.println("Removing node with value 66: " + ll.remove(66).data);
-//		ll.printList();
-//		System.out.println("Size of the list now: " + ll.size());
-//		
-//		
-//		
-//		//removeLast()
-//		System.out.println();
-//		System.out.println("Removing last: " + ll.removeLast().data);
-//		ll.printList();
-//		System.out.println("Size of the list now: " + ll.size());
-//		
-//		
-//		//removeStart()
-//		System.out.println();
-//		System.out.println("Removing head: " + ll.removeStart().data);
-//		ll.printList();
-//		System.out.println("Size of the list now: " + ll.size());
-//		
-//		
-//		System.out.println();
-//		System.out.println("Removing after index 1:");
-//		ll.removeAfter(1);
-//		System.out.println("Size of the list now: " + ll.size());
-//		ll.printList();
+		// remove(66)
+		System.out.println();
+		System.out.println("Removing node with value 66: " + ll.remove(66).data);
+		ll.printList();
+		System.out.println("Size of the list now: " + ll.size());
+		
+		
+		
+		//removeLast()
+		System.out.println();
+		System.out.println("Removing last: " + ll.removeLast().data);
+		ll.printList();
+		System.out.println("Size of the list now: " + ll.size());
+		
+		
+		//removeStart()
+		System.out.println();
+		System.out.println("Removing head: " + ll.removeStart().data);
+		ll.printList();
+		System.out.println("Size of the list now: " + ll.size());
+		
+		
+		System.out.println();
+		System.out.println("Removing after index 1:");
+		ll.removeAfter(1);
+		System.out.println("Size of the list now: " + ll.size());
+		ll.printList();
 
 	}
 

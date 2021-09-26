@@ -116,16 +116,47 @@ public class Stack {
 		
 		Stack stack = new Stack(10);
 		
+		stack.display();
+		System.out.println();
+		
 		// pushing
 		stack.push(10);// bottom of stack
+		stack.display();
+		System.out.println();
+		
+		
 		stack.push(20);
+		stack.display();
+		System.out.println();
+		
 		stack.push(30);
+		stack.display();
+		System.out.println();
+		
 		stack.push(40);
+		stack.display();
+		System.out.println();
+		
 		stack.push(50);
+		stack.display();
+		System.out.println();
+		
 		stack.push(60);
+		stack.display();
+		System.out.println();
+		
 		stack.push(70);
+		stack.display();
+		System.out.println();
+		
 		stack.push(80);
+		stack.display();
+		System.out.println();
+		
 		stack.push(90);
+		stack.display();
+		System.out.println();
+		
 		stack.push(100);// top of stack (last in, first out)
 		
 		// display
@@ -179,6 +210,7 @@ public class Stack {
 		
 		
 		System.out.println("Stack empty? " + stack.isEmpty());
+		
 		
 		
 		

@@ -23,7 +23,7 @@ public class Queue {
 	
 	// checks to see if queue is full
 	public boolean isFull() {
-		return size == queue.length; // or can be rear == queue.length-1
+		return size == queue.length; // or can be tail == queue.length-1
 	}
 	
 	// returns the current number of items in queue
