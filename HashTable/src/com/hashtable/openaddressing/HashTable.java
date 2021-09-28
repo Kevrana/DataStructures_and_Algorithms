@@ -10,11 +10,13 @@ public class HashTable {
 	private Entry[] hashTable; // Hashtable array of type Entry( a string key,value pair)
 	private int size; // number of  hashtable buckets/slots/array elements.
 	private int itemCount; // number of items currently in the hashtable
+	private double loadFactor; // load factor of 0.75 
 	
-	public HashTable(int size) {
-		this.size = size;
-		this.hashTable = new Entry[size];
-		itemCount = 0;
+	public HashTable(int initialSize) {
+		this.size = initialSize;
+		this.hashTable = new Entry[initialSize];
+		this.itemCount = 0;
+		this.loadFactor = 0.75;
 	}
 	
 	
@@ -105,11 +107,18 @@ public class HashTable {
 		}
 		
 		
+		
+		
 		// otherwise, if the bucket at index is null, then insert new Entry
 		if(hashTable[index] == null) {
 			hashTable[index] = newEntry;
 			System.out.println("Insert entry: ('" + key + ", " + value + "') @ index: " + index);
-			size++;
+			itemCount++;
+			
+			// auto resize if table is 3/4 full
+			if(itemCount >= hashTable.length * loadFactor)
+				resize();
+			
 			return;
 		}
 
@@ -151,7 +160,7 @@ public class HashTable {
 				if(hashTable[index].getKey().equals(key)) {
 					toDelete = hashTable[index];
 					hashTable[index] = null;
-					size--;
+					itemCount--;
 				}
 				
 				index = linearProbing(index);
@@ -177,12 +186,12 @@ public class HashTable {
 	
 	// empty method - returns true if table is empty
 	public boolean isEmpty() {
-		return size == 0;
+		return itemCount == 0;
 	}
 	
 	// full method - returns true if table is full
 	public boolean isFull() {
-		return size == hashTable.length;
+		return itemCount == hashTable.length;
 	}
 	
 	// print method-   displays the hash table visually.
@@ -204,7 +213,7 @@ public class HashTable {
 	
 	// size method - returns the number of Entries in the hashtable
 	public int size() {
-		return size;
+		return itemCount;
 	}
 	
 	// resize method - increases the capacity of the Hash Table
@@ -217,7 +226,7 @@ public class HashTable {
 		int newCapacity = hashTable.length*2;
 		Entry[] tempArr = hashTable;
 		hashTable = new Entry[newCapacity];
-		size = 0;
+		itemCount = 0;
 		
 		for(Entry entry: tempArr) {
 			if(entry != null)
@@ -280,11 +289,13 @@ public class HashTable {
 		// insert duplicate key - table should update with new value
 		ht.put("Thomas", "Cashier's Manager");
 		ht.print();
+		System.out.println("Current size: " + ht.size());
 		
 		// try inserting a null
 		// insert duplicate key - table should update with new value
 		ht.put(null, "unemployed");
 		ht.print();
+		System.out.println("Current size: " + ht.size());
 		
 		System.out.println("\n********Accessing Entries********\n");
 		
@@ -307,8 +318,10 @@ public class HashTable {
 		
 		System.out.println("\n********Deleting Entries********\n");
 		
+		System.out.println("Current size: " + ht.size());
 		System.out.println("Removed entry's value of 'Thomas' from the table: " + ht.remove("Thomas").getValue());
 		ht.print();
+		System.out.println("Current size: " + ht.size());
 	}
 
 }
