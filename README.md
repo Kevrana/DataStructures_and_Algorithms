@@ -7,7 +7,7 @@ Repo of all of my implementations of the various Data Structures and Algorithms 
 - LinkedList (Singly, Doubly, Circular Singly, Circular Doubly)
 - Stack (Array-based, LinkedList-based)
 - Queue (Array-based, LinkedList-based, Circular Queue Array)
-- HashTable (Open Addressing: Linear Probing)
+- HashTable (Open Addressing: Linear Probing, Closed Addressing: Separate Chaining using LinkedLists)
 
 #List of Algorithms Implemented:
 - (pending)

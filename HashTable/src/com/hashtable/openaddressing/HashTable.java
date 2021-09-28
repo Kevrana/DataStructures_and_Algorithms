@@ -74,7 +74,7 @@ public class HashTable {
 
 		int index = hashFunction(key);
 		int startingIndex = index;
-		Entry newEntry = new Entry(key, value);
+		
 		
 		// if the bucket at index already has data 
 		while(hashTable[index] != null) {
@@ -84,14 +84,14 @@ public class HashTable {
 			// if passed key matches existing key,
 			// then we just update it's value with the new value.
 			if(hashTable[index].getKey().equals(key)){
-				hashTable[index].setValue(newEntry.getValue());
+				hashTable[index].setValue(value);
 				System.out.println("Updated entry: ('" + key + ", " + value + "') @ index: " + index);
 				return;
 			}
 		
 			// Otherwise, we have a collision
 			System.out.println("Collision! @index: " + index +
-					" for Entry('" + newEntry.getKey()+ "', '"+ newEntry.getValue() + 
+					" for Entry('" + key + "', '"+ value + 
 					"')! Searching for new location to insert at.....");
 			System.out.println();
 			
@@ -111,6 +111,7 @@ public class HashTable {
 		
 		// otherwise, if the bucket at index is null, then insert new Entry
 		if(hashTable[index] == null) {
+			Entry newEntry = new Entry(key, value);
 			hashTable[index] = newEntry;
 			System.out.println("Insert entry: ('" + key + ", " + value + "') @ index: " + index);
 			itemCount++;
@@ -127,6 +128,9 @@ public class HashTable {
 	
 	// Access method - returns the value of the given key if it exists in the table
 	public String get(String key) {
+		
+		if(key == null)
+			return null;
 		
 		int index = hashFunction(key);
 		int startingIndex = index;
@@ -151,9 +155,14 @@ public class HashTable {
 	// and set's the element of the index to null again.
 	public Entry remove(String key) {
 		
+		Entry toDelete = null;
+		
+		if(key == null)
+			return toDelete;
+				
 		int index = hashFunction(key);
 		int startingIndex = index;
-		Entry toDelete = null;
+		
 		
 		if(!isEmpty()) {
 			while(hashTable[index] != null) {
