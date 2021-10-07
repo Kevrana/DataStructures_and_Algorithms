@@ -199,3 +199,103 @@ public class Queue {
 	}
 
 }
+
+/*Output:
+****************ENQUEUE TEST*******************
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 |    |    |    |    |    |    |    |    |    | 
+Size: 1
+Front: 0
+Rear: 0
+
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 |    |    |    |    |    |    |    |    | 
+Size: 2
+Front: 0
+Rear: 1
+
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 30 |    |    |    |    |    |    |    | 
+Size: 3
+Front: 0
+Rear: 2
+
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 30 | 40 |    |    |    |    |    |    | 
+Size: 4
+Front: 0
+Rear: 3
+
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 30 | 40 | 50 |    |    |    |    |    | 
+Size: 5
+Front: 0
+Rear: 4
+
+*****************PEEK TEST***************
+
+Front of queue: 10
+
+*****************DEQUEUE TEST*************
+
+Removed from queue: 10
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: |    | 20 | 30 | 40 | 50 |    |    |    |    |    | 
+Size: 4
+Front: 1
+Rear: 4
+
+Removed from queue: 20
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: |    |    | 30 | 40 | 50 |    |    |    |    |    | 
+Size: 3
+Front: 2
+Rear: 4
+
+Removed from queue: 30
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: |    |    |    | 40 | 50 |    |    |    |    |    | 
+Size: 2
+Front: 3
+Rear: 4
+
+Removed from queue: 40
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: |    |    |    |    | 50 |    |    |    |    |    | 
+Size: 1
+Front: 4
+Rear: 4
+
+Removed from queue: 50
+Stack empty! Try pushing something in first?
+Size: 0
+Front: -1
+Rear: -1
+
+*********ENQUEUE AGAIN AFTER RESETING TEST************
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 60 | 70 | 80 |    |    |    |    |    |    |    | 
+Size: 3
+Front: 0
+Rear: 2
+*/

@@ -212,3 +212,79 @@ public class Node {
 	}
 
 }
+
+/*Output:
+The Current Tree (size: 1):
+
+ROOT => NILL
+
+The Current Tree (size: 5):
+
+ROOT => A, B, C, D, 
+A => NILL
+B => NILL
+C => NILL
+D => NILL
+
+The Current Tree (size: 12):
+
+ROOT => A, B, C, D, 
+A => A1, A2, 
+A1 => NILL
+A2 => NILL
+B => B1, 
+B1 => NILL
+C => NILL
+D => D1, D2, D3, 
+D1 => NILL
+D2 => NILL
+D3 => DD1, 
+DD1 => NILL
+
+Heights/Depths of the Nodes:
+ 
+Root's Height: 3, Depth: 0
+A's Height: 1, Depth: 1
+A1's Height: 0, Depth: 2
+A2's Height: 0, Depth: 2
+B's Height: 1, Depth: 1
+B1's Height: 0, Depth: 2
+C's Height: 0, Depth: 1
+D's Height: 2, Depth: 1
+D1's Height: 0, Depth: 2
+D2's Height: 0, Depth: 2
+D3's Height: 1, Depth: 2
+DD1's Height: 0, Depth: 3
+
+Removed Child DD1 of D3: true
+
+The Current Tree (size: 11):
+
+ROOT => A, B, C, D, 
+A => A1, A2, 
+A1 => NILL
+A2 => NILL
+B => B1, 
+B1 => NILL
+C => NILL
+D => D1, D2, D3, 
+D1 => NILL
+D2 => NILL
+D3 => NILL
+
+Heights/Depths of the Nodes:
+ 
+Root's Height: 2, Depth: 0
+A's Height: 1, Depth: 1
+A1's Height: 0, Depth: 2
+A2's Height: 0, Depth: 2
+B's Height: 1, Depth: 1
+B1's Height: 0, Depth: 2
+C's Height: 0, Depth: 1
+D's Height: 1, Depth: 1
+D1's Height: 0, Depth: 2
+D2's Height: 0, Depth: 2
+D3's Height: 0, Depth: 2
+*/
+
+

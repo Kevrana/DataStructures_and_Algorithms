@@ -159,3 +159,54 @@ public class Queue {
 	}
 
 }
+
+/*Output:
+****************ENQUEUE TEST*******************
+
+The LinkedList Queue is: 
+Position: | 01 | 02 | 03 | 04 | 05 | 06 | 
+   Value: | 11 | 12 | 13 | 14 | 15 | 16 | 
+Size: 6
+Current value of head: 11
+
+****************DEQUEUE TEST*******************
+
+Dequeued value: 11
+The LinkedList Queue is: 
+Position: | 01 | 02 | 03 | 04 | 05 | 
+   Value: | 12 | 13 | 14 | 15 | 16 | 
+Size: 5
+Current value of head: 12
+
+Dequeued value: 12
+The LinkedList Queue is: 
+Position: | 01 | 02 | 03 | 04 | 
+   Value: | 13 | 14 | 15 | 16 | 
+Size: 4
+Current value of head: 13
+
+Dequeued value: 13
+The LinkedList Queue is: 
+Position: | 01 | 02 | 03 | 
+   Value: | 14 | 15 | 16 | 
+Size: 3
+Current value of head: 14
+
+Dequeued value: 14
+The LinkedList Queue is: 
+Position: | 01 | 02 | 
+   Value: | 15 | 16 | 
+Size: 2
+Current value of head: 15
+
+Dequeued value: 15
+The LinkedList Queue is: 
+Position: | 01 | 
+   Value: | 16 | 
+Size: 1
+Current value of head: 16
+
+Dequeued value: 16
+The LinkedList Queue is: Empty!!!
+Size: 0
+*/

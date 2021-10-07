@@ -152,3 +152,76 @@ public class Stack {
 	}
 
 }
+
+/*Output:
+The Stack is: Empty! Try adding an item or don't.... it's your call.
+
+The Stack is: 
+ | 1 | <== TOP 
+ ````` 
+
+The Stack is: 
+ | 2 | <== TOP 
+ | 1 | 
+ ````` 
+
+The Stack is: 
+ | 3 | <== TOP 
+ | 2 | 
+ | 1 | 
+ ````` 
+
+The Stack is: 
+ | 4 | <== TOP 
+ | 3 | 
+ | 2 | 
+ | 1 | 
+ ````` 
+
+The Stack is: 
+ | 5 | <== TOP 
+ | 4 | 
+ | 3 | 
+ | 2 | 
+ | 1 | 
+ ````` 
+
+The top of stack is: 5
+Size: 5
+
+Popped item: 5
+The Stack is: 
+ | 4 | <== TOP 
+ | 3 | 
+ | 2 | 
+ | 1 | 
+ ````` 
+Size: 4
+
+Popped item: 4
+The Stack is: 
+ | 3 | <== TOP 
+ | 2 | 
+ | 1 | 
+ ````` 
+Size: 3
+
+Popped item: 3
+The Stack is: 
+ | 2 | <== TOP 
+ | 1 | 
+ ````` 
+Size: 2
+
+Popped item: 2
+The Stack is: 
+ | 1 | <== TOP 
+ ````` 
+Size: 1
+
+Popped item: 1
+The Stack is: Empty! Try adding an item or don't.... it's your call.
+Size: 0
+
+Stack empty? true
+*/

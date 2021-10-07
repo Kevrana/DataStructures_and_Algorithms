@@ -268,3 +268,26 @@ public class DoublyLinkedList {
 	}
 
 }
+
+/*Output:
+List empty? true
+Size of list: 0
+
+Current list: 5, 4, 1, 6, 2, 3, 
+List empty? false
+Size of list: 6
+Value at index 2: 1
+Does it contain 3: true
+
+last item removed: 3
+Current list: 5, 4, 1, 6, 2, 
+Size of list: 5
+
+first item removed: 5
+Current list: 4, 1, 6, 2, 
+Size of list: 4
+
+Remove item after Node with value '1': 6
+Current list: 4, 1, 2, 
+Size of list: 3
+*/

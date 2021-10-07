@@ -218,3 +218,118 @@ public class Stack {
 	}
 
 }
+
+
+/*Output:
+Stack empty! Try pushing something in first?
+
+Stack Array:
+Top:   |  top | - |  - |  - |  - |  - |  - |  - |  - |  - |  
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+Stack Array:
+Top:   |  - |  top | - |  - |  - |  - |  - |  - |  - |  - |  
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+Stack Array:
+Top:   |  - |  - |  top | - |  - |  - |  - |  - |  - |  - |  
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 30 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+Stack Array:
+Top:   |  - |  - |  - |  top | - |  - |  - |  - |  - |  - |  
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 30 | 40 | 0 | 0 | 0 | 0 | 0 | 0 | 
+
+Stack Array:
+Top:   |  - |  - |  - |  - |  top | - |  - |  - |  - |  - |  
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 30 | 40 | 50 | 0 | 0 | 0 | 0 | 0 | 
+
+Stack Array:
+Top:   |  - |  - |  - |  - |  - |  top | - |  - |  - |  - |  
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 30 | 40 | 50 | 60 | 0 | 0 | 0 | 0 | 
+
+Stack Array:
+Top:   |  - |  - |  - |  - |  - |  - |  top | - |  - |  - |  
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 0 | 0 | 0 | 
+
+Stack Array:
+Top:   |  - |  - |  - |  - |  - |  - |  - |  top | - |  - |  
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 0 | 0 | 
+
+Stack Array:
+Top:   |  - |  - |  - |  - |  - |  - |  - |  - |  top | - |  
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 0 | 
+
+Stack Array:
+Top:   |  - |  - |  - |  - |  - |  - |  - |  - |  - |  top | 
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 100 | 
+
+The top value is: 100
+
+Popped off: 100
+Stack Array:
+Top:   |  - |  - |  - |  - |  - |  - |  - |  - |  top | 
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 
+Value: | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 90 | 
+
+Popped off: 90
+Stack Array:
+Top:   |  - |  - |  - |  - |  - |  - |  - |  top | 
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 
+Value: | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 80 | 
+
+Popped off: 80
+Stack Array:
+Top:   |  - |  - |  - |  - |  - |  - |  top | 
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 
+Value: | 10 | 20 | 30 | 40 | 50 | 60 | 70 | 
+
+Popped off: 70
+Stack Array:
+Top:   |  - |  - |  - |  - |  - |  top | 
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 
+Value: | 10 | 20 | 30 | 40 | 50 | 60 | 
+
+Popped off: 60
+Stack Array:
+Top:   |  - |  - |  - |  - |  top | 
+Index: | 00 | 01 | 02 | 03 | 04 | 
+Value: | 10 | 20 | 30 | 40 | 50 | 
+
+Popped off: 50
+Stack Array:
+Top:   |  - |  - |  - |  top | 
+Index: | 00 | 01 | 02 | 03 | 
+Value: | 10 | 20 | 30 | 40 | 
+
+Popped off: 40
+Stack Array:
+Top:   |  - |  - |  top | 
+Index: | 00 | 01 | 02 | 
+Value: | 10 | 20 | 30 | 
+
+Popped off: 30
+Stack Array:
+Top:   |  - |  top | 
+Index: | 00 | 01 | 
+Value: | 10 | 20 | 
+
+Popped off: 20
+Stack Array:
+Top:   |  top | 
+Index: | 00 | 
+Value: | 10 | 
+
+Popped off: 10
+Stack empty! Try pushing something in first?
+Stack empty? true
+*/

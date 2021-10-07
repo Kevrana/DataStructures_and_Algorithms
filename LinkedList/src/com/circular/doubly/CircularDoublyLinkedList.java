@@ -321,3 +321,27 @@ public class CircularDoublyLinkedList {
 	}
 
 }
+
+
+/*Output:
+Circular Doubly LinkedList is: 
+10, 9, 7, 6, 1, 2, 3, 4, 5, 8, 11, 12, 
+Size: 12
+
+Removed last: 12
+Circular Doubly LinkedList is: 
+10, 9, 7, 6, 1, 2, 3, 4, 5, 8, 11, 
+Size: 11
+
+Removed first: 10
+Circular Doubly LinkedList is: 
+9, 7, 6, 1, 2, 3, 4, 5, 8, 11, 
+Size: 10
+
+Removed after index 3: 2
+Circular Doubly LinkedList is: 
+9, 7, 6, 1, 3, 4, 5, 8, 11, 
+Size: 9
+Does list contain 1 : true
+Get value at index 4: 3
+*/

@@ -226,3 +226,98 @@ Queue queue = new Queue(10);
 	}
 
 }
+
+
+/*Output:
+****************ENQUEUE TEST*******************
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 |    |    |    |    |    |    |    |    |    | 
+Size: 1
+Front: 0
+Rear: 0
+
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 |    |    |    |    |    |    |    |    | 
+Size: 2
+Front: 0
+Rear: 1
+
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 30 |    |    |    |    |    |    |    | 
+Size: 3
+Front: 0
+Rear: 2
+
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 30 | 40 |    |    |    |    |    |    | 
+Size: 4
+Front: 0
+Rear: 3
+
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 10 | 20 | 30 | 40 | 50 |    |    |    |    |    | 
+Size: 5
+Front: 0
+Rear: 4
+
+*****************PEEK TEST***************
+
+Front of queue: 10
+
+*****************DEQUEUE TEST*************
+
+Removed from queue: 10
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: |    | 20 | 30 | 40 | 50 |    |    |    |    |    | 
+Size: 4
+Front: 1
+Rear: 4
+
+Removed from queue: 20
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: |    |    | 30 | 40 | 50 |    |    |    |    |    | 
+Size: 3
+Front: 2
+Rear: 4
+
+Removed from queue: 30
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: |    |    |    | 40 | 50 |    |    |    |    |    | 
+Size: 2
+Front: 3
+Rear: 4
+
+*********ENQUEUE AGAIN AFTER DEQUEUING SOME TEST************
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 
+Value: | 84 | 85 | 86 | 40 | 50 | 60 | 70 | 80 | 82 | 83 | 
+Size: 10
+Front: 3
+Rear: 2
+
+*********ENQUEUE AGAIN AFTER FULL QUEUE TEST************
+Queue Array: 
+
+Index: | 00 | 01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 
+Value: | 40 | 50 | 60 | 70 | 80 | 82 | 83 | 84 | 85 | 86 | 87 |    |    |    |    |    |    |    |    |    | 
+Size: 11
+Front: 0
+Rear: 10
+*/

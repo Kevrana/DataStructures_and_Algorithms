@@ -1,0 +1,32 @@
+package com.tree.generic;
+
+import java.util.ArrayList;
+
+
+// Implementation of a generic Tree in Java using ArrayList as the backing system for
+// keeping track of the pointers of the children for each node
+
+public class GenericTree {
+
+	class Node{
+		int data; // the data of the node of type int
+		ArrayList<Node> children; // the list of pointers of the children node(s)
+		
+		Node(int data){
+			this.data = data;
+			this.children = new ArrayList<>();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		
+
+	}
+
+}

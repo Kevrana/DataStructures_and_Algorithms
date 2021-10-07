@@ -1,0 +1,33 @@
+package com.tree.generic;
+
+import java.util.ArrayList;
+
+public class Tree {
+	
+	public static class Node{
+		private int data;
+		private Node parent;
+		private ArrayList<Node> children;
+		
+		public Node(int data) {
+			
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	private Node root;
+	
+	public Tree
+	
+
+	public static void main(String[] args) {
+	
+
+	}
+
+}

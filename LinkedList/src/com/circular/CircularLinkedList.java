@@ -316,3 +316,37 @@ public class CircularLinkedList {
 	}
 
 }
+
+
+/*Output:
+Circular list is: 
+7, 6, 8, 1, 2, 3, 4, 5, 
+Size: 8
+
+Removed last: 5
+Circular list is: 
+7, 6, 8, 1, 2, 3, 4, 
+Size: 7
+
+Removed first: 7
+Circular list is: 
+6, 8, 1, 2, 3, 4, 
+Size: 6
+
+Removed after index 5: 6
+Circular list is: 
+8, 1, 2, 3, 4, 
+Size: 5
+
+Removed first: 8
+Circular list is: 
+1, 2, 3, 4, 
+Size: 4
+
+Removed last: 4
+Circular list is: 
+1, 2, 3, 
+Size: 3
+Does list contain 1 : true
+Get value at index 0: 1
+*/

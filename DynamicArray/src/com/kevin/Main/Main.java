@@ -20,3 +20,13 @@ public class Main {
 	}
 
 }
+
+
+/* 
+output:
+10
+20
+30
+50
+3
+*/

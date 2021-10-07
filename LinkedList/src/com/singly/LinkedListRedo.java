@@ -383,3 +383,41 @@ public class LinkedListRedo {
 	}
 
 }
+
+
+/*Output:
+Current list: 1, 2, 3, 
+Size of the list now: 3
+
+after adding to first: 
+Current list: 4, 1, 2, 3, 
+Size of the list now: 4
+
+After appending one more: 
+Current list: 4, 1, 2, 3, 5, 
+Size of the list now: 5
+The value at index 4: 5
+
+Adding after index 2: 
+Current list: 4, 1, 2, 66, 3, 5, 
+Size of the list now: 6
+
+Does it contain 66?  true
+Current list: 4, 1, 2, 66, 3, 5, 
+
+Removing node with value 66: 66
+Current list: 4, 1, 2, 3, 5, 
+Size of the list now: 5
+
+Removing last: 5
+Current list: 4, 1, 2, 3, 
+Size of the list now: 4
+
+Removing head: 4
+Current list: 1, 2, 3, 
+Size of the list now: 3
+
+Removing after index 1:
+Size of the list now: 2
+Current list: 1, 2, 
+*/

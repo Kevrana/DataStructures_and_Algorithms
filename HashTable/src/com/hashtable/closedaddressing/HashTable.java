@@ -316,3 +316,193 @@ public class HashTable {
 	}
 
 }
+
+
+/*Output:
+********Initial HashTable********
+
+HashTable is: 
+INDEX | ENTRY 
+00 | nil
+01 | nil
+02 | nil
+03 | nil
+04 | nil
+05 | nil
+06 | nil
+
+
+********Inserting Entries********
+
+Insert entry: ('Kevin, Software Engineer') @ index: 6
+
+HashTable is: 
+INDEX | ENTRY 
+00 | nil
+01 | nil
+02 | nil
+03 | nil
+04 | nil
+05 | nil
+06 | ('Kevin', ' Software Engineer'), 
+
+
+Current size: 1
+Insert entry: ('Glen, Gardener') @ index: 5
+
+HashTable is: 
+INDEX | ENTRY 
+00 | nil
+01 | nil
+02 | nil
+03 | nil
+04 | nil
+05 | ('Glen', ' Gardener'), 
+06 | ('Kevin', ' Software Engineer'), 
+
+
+Current size: 2
+Collision! @index: 6 for Entry('Thomas', 'Cashier')! Adding to end of this index....
+
+
+HashTable is: 
+INDEX | ENTRY 
+00 | nil
+01 | nil
+02 | nil
+03 | nil
+04 | nil
+05 | ('Glen', ' Gardener'), 
+06 | ('Kevin', ' Software Engineer'), ('Thomas', ' Cashier'), 
+
+
+Current size: 3
+Insert entry: ('Scully, Doctor') @ index: 0
+
+HashTable is: 
+INDEX | ENTRY 
+00 | ('Scully', ' Doctor'), 
+01 | nil
+02 | nil
+03 | nil
+04 | nil
+05 | ('Glen', ' Gardener'), 
+06 | ('Kevin', ' Software Engineer'), ('Thomas', ' Cashier'), 
+
+
+Current size: 4
+Collision! @index: 5 for Entry('Fox', 'FBI agent')! Adding to end of this index....
+
+
+HashTable is: 
+INDEX | ENTRY 
+00 | ('Scully', ' Doctor'), 
+01 | nil
+02 | nil
+03 | nil
+04 | nil
+05 | ('Glen', ' Gardener'), ('Fox', ' FBI agent'), 
+06 | ('Kevin', ' Software Engineer'), ('Thomas', ' Cashier'), 
+
+
+Current size: 5
+Insert entry: ('Alexandra, Lawyer') @ index: 4
+
+HashTable is: 
+INDEX | ENTRY 
+00 | ('Scully', ' Doctor'), 
+01 | nil
+02 | nil
+03 | nil
+04 | ('Alexandra', ' Lawyer'), 
+05 | ('Glen', ' Gardener'), ('Fox', ' FBI agent'), 
+06 | ('Kevin', ' Software Engineer'), ('Thomas', ' Cashier'), 
+
+
+Current size: 6
+Insert entry: ('Lincoln, Lawyer') @ index: 1
+
+HashTable is: 
+INDEX | ENTRY 
+00 | ('Scully', ' Doctor'), 
+01 | ('Lincoln', ' Lawyer'), 
+02 | nil
+03 | nil
+04 | ('Alexandra', ' Lawyer'), 
+05 | ('Glen', ' Gardener'), ('Fox', ' FBI agent'), 
+06 | ('Kevin', ' Software Engineer'), ('Thomas', ' Cashier'), 
+
+
+Current size: 7
+Collision! @index: 0 for Entry('Gandolf', 'Wizard')! Adding to end of this index....
+
+
+HashTable is: 
+INDEX | ENTRY 
+00 | ('Scully', ' Doctor'), ('Gandolf', ' Wizard'), 
+01 | ('Lincoln', ' Lawyer'), 
+02 | nil
+03 | nil
+04 | ('Alexandra', ' Lawyer'), 
+05 | ('Glen', ' Gardener'), ('Fox', ' FBI agent'), 
+06 | ('Kevin', ' Software Engineer'), ('Thomas', ' Cashier'), 
+
+
+Current size: 8
+Updated entry: ('Thomas, Cashier's Manager') @ index: 6
+
+HashTable is: 
+INDEX | ENTRY 
+00 | ('Scully', ' Doctor'), ('Gandolf', ' Wizard'), 
+01 | ('Lincoln', ' Lawyer'), 
+02 | nil
+03 | nil
+04 | ('Alexandra', ' Lawyer'), 
+05 | ('Glen', ' Gardener'), ('Fox', ' FBI agent'), 
+06 | ('Kevin', ' Software Engineer'), ('Thomas', ' Cashier's Manager'), 
+
+
+Current size: 8
+Cannot insert entry: (' NULL , unemployed')... Nulls not allowed in HashTable!
+
+HashTable is: 
+INDEX | ENTRY 
+00 | ('Scully', ' Doctor'), ('Gandolf', ' Wizard'), 
+01 | ('Lincoln', ' Lawyer'), 
+02 | nil
+03 | nil
+04 | ('Alexandra', ' Lawyer'), 
+05 | ('Glen', ' Gardener'), ('Fox', ' FBI agent'), 
+06 | ('Kevin', ' Software Engineer'), ('Thomas', ' Cashier's Manager'), 
+
+
+Current size: 8
+
+********Accessing Entries********
+
+Get the job(value) of 'Gandolf': Wizard
+Get the job(value) of 'Bond': null
+
+********Searching Entries********
+
+Does 'Bond' exist in table? false
+Does 'Glen' exist in table? true
+
+********Deleting Entries********
+
+Current size: 8
+Removed entry's value of 'Thomas' from the table: Cashier's Manager
+
+HashTable is: 
+INDEX | ENTRY 
+00 | ('Scully', ' Doctor'), ('Gandolf', ' Wizard'), 
+01 | ('Lincoln', ' Lawyer'), 
+02 | nil
+03 | nil
+04 | ('Alexandra', ' Lawyer'), 
+05 | ('Glen', ' Gardener'), ('Fox', ' FBI agent'), 
+06 | ('Kevin', ' Software Engineer'), 
+
+
+Current size: 7
+*/
