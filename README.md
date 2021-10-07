@@ -1,10 +1,10 @@
-#DataStructures and Algorithms
+# DataStructures and Algorithms
 
 **Version 1.0.20**
 
 Repo of all of my implementations of the various Data Structures and Algorithms done in Java.
 
-##List of Data Structures Implemented:
+## List of Data Structures Implemented:
 - Array
 - ArrayList (Dynamic Array)
 - LinkedList (Singly, Doubly, Circular Singly, Circular Doubly)
@@ -13,7 +13,7 @@ Repo of all of my implementations of the various Data Structures and Algorithms 
 - HashTable (Open Addressing: Linear Probing, Closed Addressing: Separate Chaining using LinkedLists)
 - Tree (Generic Tree)
 
-##List of Algorithms Implemented:
+## List of Algorithms Implemented:
 - (pending)
 
 
@@ -21,5 +21,5 @@ Repo of all of my implementations of the various Data Structures and Algorithms 
 ## Contributors
 - Kevin Rana(ME)
 
-##License & Copyright
+## License & Copyright
 © Kevin Rana
