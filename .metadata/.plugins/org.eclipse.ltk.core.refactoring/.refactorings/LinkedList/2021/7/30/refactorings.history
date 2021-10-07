@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename local variable &apos;cll&apos; in &apos;com.circular.doubly.CircularDoublyLinkedList.main(...)&apos; to &apos;cdll&apos;&#x0D;&#x0A;- Original project: &apos;LinkedList&apos;&#x0D;&#x0A;- Original element: &apos;com.circular.doubly.CircularDoublyLinkedList.main(String[]).cll&apos;&#x0D;&#x0A;- Renamed element: &apos;cll&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;cll&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;com.circular.doubly{CircularDoublyLinkedList.java[CircularDoublyLinkedList~main~\[QString;@cll!2015!2076!2040!2042!QCircularDoublyLinkedList;!0!false" name="cdll" references="true" stamp="1626999614081" version="1.0"/>
-</session>
