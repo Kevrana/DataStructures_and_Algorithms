@@ -31,7 +31,6 @@ public class Node {
 		return this.children.remove(child);
 	}
 	
-	
 	// returns current # of nodes in tree
 	public static int size() {
 		return size;
@@ -72,7 +71,6 @@ public class Node {
 		return this.children.size() == 0;
 	}
 	
-	
 	// prints out the tree
 	public void display() {
 		
@@ -97,7 +95,6 @@ public class Node {
 		}
 	}
 	
-	
 	// gets the depth level of the node
 	public int getDepth() {
 		if(this.isRoot())
@@ -108,8 +105,6 @@ public class Node {
 	}
 	
 		
-	
-	
 	// get the height level of the node
 	public int getHeight() {
 		
@@ -127,7 +122,84 @@ public class Node {
 		
 	}
 	
+	// Depth First Traversals
 	
+	// InOrder (LEFT, ROOT, RIGHT): A1, A, A2, B1, B, C, ROOT, D1, D2, D, D3
+	public static void inOrder(Node node) {
+		
+		// if node is null, then return
+		if(node == null)
+			return;
+		
+		// get the total number of children of given node
+		int totalChildren = node.getChildren().size();
+		
+		// (LEFT) recursively perform an inOrder on all left children nodes
+		for(int i = 0; i < totalChildren-1;i++) {
+			if(!node.isLeaf())
+				inOrder(node.getChildren().get(i));
+		}
+		
+		// (ROOT) print current node's (current root's) data
+		System.out.print(node.getData() + ", ");
+		
+		// (RIGHT) recursively call on right child node
+		if(!node.isLeaf())
+			inOrder(node.getChildren().get(totalChildren-1));
+		
+	}
+	
+	// PreOrder (ROOT, LEFT, RIGHT): ROOT, A, A1, A2, B, B1, C, D, D1, D2, D3
+	public static void preOrder(Node node) {
+			
+		// if node is null, then return
+		if(node == null)
+			return;
+		
+		// (ROOT) print current node's (current root's) data
+		System.out.print(node.getData() + ", ");
+		
+		// get the total number of children of given node
+		int totalChildren = node.getChildren().size();
+		
+		// (LEFT) recursively perform a preOrder on all left children nodes
+		for(int i = 0; i < totalChildren-1;i++) {
+			if(!node.isLeaf())
+				preOrder(node.getChildren().get(i));
+		}
+		
+		// (RIGHT) recursively call on right child node
+		if(!node.isLeaf())
+			preOrder(node.getChildren().get(totalChildren-1));
+	}
+	
+	// PostOrder (LEFT, RIGHT, ROOT): A1, A2, A, B1, B, C, D1, D2, D3, D, ROOT
+	public static void postOrder(Node node) {
+			
+		// if node is null, then return
+		if(node == null)
+			return;
+		
+		// get the total number of children of given node
+		int totalChildren = node.getChildren().size();
+		
+		// (LEFT) recursively perform a preOrder on all left children nodes
+		for(int i = 0; i < totalChildren-1;i++) {
+			if(!node.isLeaf())
+				postOrder(node.getChildren().get(i));
+		}
+		
+		// (RIGHT) recursively call on right child node
+		if(!node.isLeaf())
+			postOrder(node.getChildren().get(totalChildren-1));
+		
+		
+		// (ROOT) print current node's (current root's) data
+		System.out.print(node.getData() + ", ");
+	}
+	
+	
+	// Breath First/ Level Order Traversal
 	
 	
 
@@ -209,6 +281,22 @@ public class Node {
 		System.out.println("D3's Height: " + nodeD3.getHeight() + ", Depth: " + nodeD3.getDepth());
 		
 		
+		//Traversals (Note: we removed DD1 node earlier)
+		System.out.println();
+		System.out.println("TREE TRAVERSALS:");
+		
+		System.out.println("Depth First Traversals:\n");
+		System.out.println("In-order(LEFT, ROOT, RIGHT): "); 
+		inOrder(root);
+		System.out.println();
+		System.out.println();
+		System.out.println("Pre-order(ROOT, LEFT, RIGHT): "); 
+		preOrder(root);
+		System.out.println();
+		System.out.println();
+		System.out.println("Post-order(LEFT, RIGHT, ROOT): "); 
+		postOrder(root);
+		
 	}
 
 }
@@ -285,6 +373,18 @@ D's Height: 1, Depth: 1
 D1's Height: 0, Depth: 2
 D2's Height: 0, Depth: 2
 D3's Height: 0, Depth: 2
+
+TREE TRAVERSALS:
+Depth First Traversals:
+
+In-order(LEFT, ROOT, RIGHT): 
+A1, A, A2, B, B1, C, ROOT, D1, D2, D, D3, 
+
+Pre-order(ROOT, LEFT, RIGHT): 
+ROOT, A, A1, A2, B, B1, C, D, D1, D2, D3, 
+
+Post-order(LEFT, RIGHT, ROOT): 
+A1, A2, A, B1, B, C, D1, D2, D3, D, ROOT, 
 */
 
 
