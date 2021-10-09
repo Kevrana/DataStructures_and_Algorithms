@@ -1,6 +1,8 @@
 package com.tree.generic;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 // Generic Tree Data Structure implementation in Java
 public class Node {
@@ -199,8 +201,42 @@ public class Node {
 	}
 	
 	
-	// Breath First/ Level Order Traversal
+	// Breath First Traversal
 	
+	// Level Order Traversal: ROOT, A, B, C, D, A1, A2, B1, D1, D2, D3
+	public static void levelOrder(Node root) {
+		
+		// check if root is null
+		if(root == null)
+			return;
+		
+		// Queue to hold nodes 
+		Queue<Node> queue = new LinkedList<>();
+		
+		queue.add(root);
+		
+		while(!queue.isEmpty()) {
+			
+			int queueSize = queue.size();
+			
+			while(queueSize > 0) {
+				
+				// store the head of the queue in a temp
+				Node curr = queue.peek();
+				
+				// remove the head of queue and print
+				System.out.print(queue.remove().getData() + ", ");
+				queueSize--;
+				
+				// for the node just removed, add all of its children to queue
+				for(int i = 0; i < curr.getChildren().size(); i++)
+					queue.add(curr.getChildren().get(i));
+				
+			}
+		}
+		
+		
+	}
 	
 
 	// execution 
@@ -286,17 +322,21 @@ public class Node {
 		System.out.println("TREE TRAVERSALS:");
 		
 		System.out.println("Depth First Traversals:\n");
-		System.out.println("In-order(LEFT, ROOT, RIGHT): "); 
+		System.out.println("In-Order(LEFT, ROOT, RIGHT): "); 
 		inOrder(root);
 		System.out.println();
 		System.out.println();
-		System.out.println("Pre-order(ROOT, LEFT, RIGHT): "); 
+		System.out.println("Pre-Order(ROOT, LEFT, RIGHT): "); 
 		preOrder(root);
 		System.out.println();
 		System.out.println();
-		System.out.println("Post-order(LEFT, RIGHT, ROOT): "); 
+		System.out.println("Post-Order(LEFT, RIGHT, ROOT): "); 
 		postOrder(root);
 		
+		System.out.println();
+		System.out.println("Breath First Traversal:\n");
+		System.out.println("Leve-Order: "); 
+		levelOrder(root);
 	}
 
 }
@@ -377,14 +417,18 @@ D3's Height: 0, Depth: 2
 TREE TRAVERSALS:
 Depth First Traversals:
 
-In-order(LEFT, ROOT, RIGHT): 
+In-Order(LEFT, ROOT, RIGHT): 
 A1, A, A2, B, B1, C, ROOT, D1, D2, D, D3, 
 
-Pre-order(ROOT, LEFT, RIGHT): 
+Pre-Order(ROOT, LEFT, RIGHT): 
 ROOT, A, A1, A2, B, B1, C, D, D1, D2, D3, 
 
-Post-order(LEFT, RIGHT, ROOT): 
+Post-Order(LEFT, RIGHT, ROOT): 
 A1, A2, A, B1, B, C, D1, D2, D3, D, ROOT, 
+Breath First Traversal:
+
+Leve-Order: 
+ROOT, A, B, C, D, A1, A2, B1, D1, D2, D3, 
 */
 
 
