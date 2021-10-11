@@ -126,7 +126,7 @@ public class Node {
 	
 	// Depth First Traversals
 	
-	// InOrder (LEFT, ROOT, RIGHT): A1, A, A2, B1, B, C, ROOT, D1, D2, D, D3
+	// InOrder (LEFT, ROOT, RIGHT): A1, A, A2, B, B1, C, ROOT, D1, D2, D, D3
 	public static void inOrder(Node node) {
 		
 		// if node is null, then return
