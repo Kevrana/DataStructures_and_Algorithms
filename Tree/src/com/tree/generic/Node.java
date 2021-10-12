@@ -88,7 +88,7 @@ public class Node {
 		}
 		System.out.println();
 		
-		// recursively call on each child node as long as it isn't a left
+		// recursively call on each child node as long as it isn't a leaf
 		if(!this.isLeaf()) {
 			for(Node node : this.getChildren()) {
 				node.display();
@@ -119,9 +119,7 @@ public class Node {
 				maxHeight = height;
 		}
 		return maxHeight + 1;
-		
-		
-		
+			
 	}
 	
 	// Depth First Traversals
@@ -335,7 +333,7 @@ public class Node {
 		
 		System.out.println();
 		System.out.println("Breath First Traversal:\n");
-		System.out.println("Leve-Order: "); 
+		System.out.println("Level-Order: "); 
 		levelOrder(root);
 	}
 
@@ -427,7 +425,7 @@ Post-Order(LEFT, RIGHT, ROOT):
 A1, A2, A, B1, B, C, D1, D2, D3, D, ROOT, 
 Breath First Traversal:
 
-Leve-Order: 
+Level-Order: 
 ROOT, A, B, C, D, A1, A2, B1, D1, D2, D3, 
 */
 
