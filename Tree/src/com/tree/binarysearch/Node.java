@@ -18,7 +18,7 @@ public class Node {
 	
 	// Insert method - inserts a node into the tree
 	public void insert(int data) {
-		// if data's value is <= current root's data, insert to left
+		// if data's value is <= current node's data, insert to left
 		if(data <= this.data) {
 			if(left == null) {
 				left = new Node(data);
@@ -64,17 +64,94 @@ public class Node {
 	
 	
 	
+	// Delete method - delete node that matches given value
+	// There are three cases when deleting a node, if node to delete: 
+	// Case 1: Is leaf, simply disconnect from tree
+	// Case 2: Has 1 child, delete node, and move child up to replace it.
+	// Case 3: Has 2 children, find the inorder successor of the node to delete,
+	// 			and replace node to delete with that.
+	
+	public Node deleteNode(int data) {
+		
+		// if the current node is null, then it means that tree
+		// is empty, so nothing to delete
+		if(this == null)
+			return null;
+		
+		// if node with data to delete is in left subtree
+		else if(data < this.data) {
+			this.left = this.left.deleteNode(data);
+		}
+		// if node with data to delete is in right subtree
+		else if(data > this.data) {
+			this.right = this.right.deleteNode(data);
+		}
+		
+		// if current node's data matches data  to delete
+		else if(data == this.data) {
+			// Case 3: node to delete has 2 children
+			if(this.left != null && this.right != null) {
+				int inOrderSuccessor = getInOrderSuccessor(this.left);
+				this.data = inOrderSuccessor;
+				this.left = this.left.deleteNode(inOrderSuccessor);
+				return this;	
+			}
+			
+			// Case 2: one child (either left or right)
+			else if(this.left !=null) {
+				size--;
+				return this.left;
+			}
+			
+			else if(this.right !=null) {
+				size--;
+				return this.right;
+			}
+			
+			// Case 1: leaf node, so just make it null
+			else {
+				size--;
+				return null;
+			}
+			
+		}
+		return this;
+	}
+	
+	// used by deleteNode() method to get the inorder successor of node being deleted
+	public int getInOrderSuccessor(Node node) {
+		
+		if(node.right != null) {
+			return getInOrderSuccessor(node.right);
+		}
+		else {
+			// decrement size by 1
+			size--;
+			return node.data;
+		}
+	}
+	
+	
+	
+	
+	
+	
 	// Traversals
 	
 	// Depth First Traversals
 	// InOrder Traversal(LEFT, ROOT, RIGHT)
 	public static void inOrder(Node node) {
+		
+		// base case
+		if(node == null)
+			return;
+		
 		// (LEFT) walk left, and recursively perform inOrder on left
 		if(node.left != null) {
 			inOrder(node.left);
 		}
 		
-		// (ROOT) visit root and print out it's data
+		// (ROOT) visit current node and print out it's data
 		System.out.print(node.data  + ", ");
 		
 		// (RIGHT) walk right, and recursively perform inOrder on right
@@ -83,11 +160,14 @@ public class Node {
 		}	
 	}
 	
-	
 	// PreOrder Traversal(ROOT, LEFT, RIGHT)
 	public static void preOrder(Node node) {
 		
-		// (ROOT) visit root and print out it's data
+		// base case
+		if(node == null)
+			return;
+		
+		// (ROOT) visit current node and print out it's data
 		System.out.print(node.data  + ", ");
 				
 		// (LEFT) walk left, and recursively perform preOrder on left
@@ -104,6 +184,11 @@ public class Node {
 	// PostOrder Traversal(LEFT, RIGHT, ROOT)
 	public static void postOrder(Node node) {
 		
+		// base case
+		if(node == null)
+			return;
+		
+		
 		// (LEFT) walk left, and recursively perform postOrder on left
 		if(node.left != null) {
 			postOrder(node.left);
@@ -114,7 +199,7 @@ public class Node {
 			postOrder(node.right);
 		}	
 		
-		// (ROOT) visit root and print out it's data
+		// (ROOT) visit current node and print out it's data
 		System.out.print(node.data  + ", ");
 	}
 	
@@ -307,6 +392,22 @@ public class Node {
 		levelOrder(root);
 		
 		
+		// Deleting a Node
+		System.out.println();
+		System.out.println();
+		
+		System.out.println("The Current Tree (size: " + size()+ "):\n");
+		root.display();
+		System.out.println();
+		System.out.println();
+		System.out.println("Deleting node with value '5': ");
+		root.deleteNode(5);
+		System.out.println();
+		System.out.println("The Current Tree (size: " + size()+ "):\n");
+		root.display();
+		
+		
+		
 		
 
 	}
@@ -355,6 +456,28 @@ Breath First Traversal:
 
 Level-Order: 
 4, 2, 6, 1, 3, 5, 7, 
+
+The Current Tree (size: 7):
+
+4 => 2, 6
+2 => 1, 3
+1 => NILL
+3 => NILL
+6 => 5, 7
+5 => NILL
+7 => NILL
+
+Deleting node with value '5': 
+
+The Current Tree (size: 6):
+
+4 => 2, 6
+2 => 1, 3
+1 => NILL
+3 => NILL
+6 => 7
+
+7 => NILL
  */
 
 
