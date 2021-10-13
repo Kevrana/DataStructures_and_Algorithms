@@ -3,7 +3,7 @@ package com.tree.binarysearch;
 import java.util.LinkedList;
 import java.util.Queue;
 
-
+// Binary Search Tree data structure implementation in java
 public class Node {
 
 	int data; // the soul of the node, without a soul, a node is null, in the void, in darkness....
