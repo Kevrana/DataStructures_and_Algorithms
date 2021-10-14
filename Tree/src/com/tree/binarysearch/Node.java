@@ -132,10 +132,6 @@ public class Node {
 	}
 	
 	
-	
-	
-	
-	
 	// Traversals
 	
 	// Depth First Traversals
@@ -242,6 +238,7 @@ public class Node {
 	}
 	
 	
+	
 	// Helper methods
 	
 	// check if this node is the root node
@@ -329,6 +326,38 @@ public class Node {
 	}
 	
 	
+	// Find the maximum value in the tree,
+	// max in a BST will be the further's right Node
+	public int findMax() {
+		
+		// if root node is null, then it is maximum in this tree
+		if(this == null)
+			return -1;
+		
+		//Traverse down the right sub tree till end
+		Node curr = this;
+		while(curr.right != null)
+			curr = curr.right;
+		
+		return curr.data;
+	}
+	
+	// Find the minimum value in the tree,
+	// min in a BST will be the further's left Node
+	public int findMin() {
+	// if root node is null, then it is maximum in this tree
+	if(this == null)
+		return -1;
+	
+	//Traverse down the left sub tree till end
+		Node curr = this;
+		while(curr.left != null)
+			curr = curr.left;
+		
+		return curr.data;
+	}
+	
+	
 	
 	public static void main(String[] args) {
 		
@@ -407,9 +436,16 @@ public class Node {
 		root.display();
 		
 		
+		//Finding the maximum
+		System.out.println();
+		System.out.println();
+		System.out.println("The maximum in this tree is: " + root.findMax());
 		
+		//Finding the minimum
+		System.out.println();
+		System.out.println();
+		System.out.println("The minimum in this tree is: " + root.findMin());
 		
-
 	}
 
 }
@@ -478,6 +514,12 @@ The Current Tree (size: 6):
 6 => 7
 
 7 => NILL
+
+The maximum in this tree is: 7
+
+
+The minimum in this tree is: 1
+
  */
 
 
