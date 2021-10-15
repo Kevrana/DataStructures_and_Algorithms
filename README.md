@@ -11,7 +11,7 @@ Repo of all of my implementations of the various Data Structures and Algorithms 
 - Stacks (Array-based, LinkedList-based)
 - Queues (Array-based, LinkedList-based, Circular Queue Array)
 - HashTables (Open Addressing: Linear Probing, Closed Addressing: Separate Chaining using LinkedLists)
-- Trees (Generic Tree, Binary Tree, Binary Search Tree, Binary MinHeap)
+- Trees (Generic Tree, Binary Tree, Binary Search Tree, Binary MinHeap, Binary MaxHeap)
 
 ## List of Algorithms Implemented:
 - (pending)

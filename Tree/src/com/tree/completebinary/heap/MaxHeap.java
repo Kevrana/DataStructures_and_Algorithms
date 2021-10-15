@@ -2,22 +2,19 @@ package com.tree.completebinary.heap;
 
 import java.util.Arrays;
 
-//Java implementation of the MinHeap data structure.
-//MinHeaps are Complete Binary Trees, so every level is filled, top to bottom, left to right
-// except the last level which is filled from the left till the last inserted node.
-public class MinHeap {
-	
+//Java implementation of the MaxHeap data structure.
+//MaxHeaps are Complete Binary Trees, so every level is filled, top to bottom, left to right
+//except the last level which is filled from the left till the last inserted node.
+public class MaxHeap {
+
 	// Instance variables
 	int size;
 	int[] heap;
 	
-	public MinHeap(int intialCapacity) {
+	public MaxHeap(int intialCapacity) {
 		size = 0;
 		heap = new int[intialCapacity];
 	}
-	
-	
-	
 	
 	// Heap Methods
 	
@@ -26,10 +23,10 @@ public class MinHeap {
 	
 		checkCapacity(); // first, check if capacity is full to resize heap before inserting
 		heap[size++] = data; // add item to end of heap and increment size
-		heapifyUp(); // will try to move newly added node up until min heap property is restored
+		heapifyUp(); // will try to move newly added node up until max heap property is restored
 	}
 	
-	// Peek method - gets min of heap
+	// Peek method - gets max of heap
 	public int peek() {
 		if(isEmpty())
 			throw new IllegalStateException();
@@ -41,10 +38,10 @@ public class MinHeap {
 		if(isEmpty())
 			throw new IllegalStateException();
 		
-		int toDelete = peek(); // store root(min) of heap in a temp
+		int toDelete = peek(); // store root(max) of heap in a temp
 		heap[0] = heap[size-1]; // move the last element to the first
 		size--; 
-		heapifyDown(); // will try to move new root down until min heap property is restored
+		heapifyDown(); // will try to move new root down until max heap property is restored
 		return toDelete;
 	}
 	
@@ -52,57 +49,57 @@ public class MinHeap {
 	// Heapify Methods 
 	
 	// HeapifyUp - used when inserting new value in heap,
-	// will bubble up value until min heap property is restored
+	// will bubble up value until max heap property is restored
 	public void heapifyUp() {
 		
 		// get the index of recently inserted item
 		int index = size-1;
 		
-		// while the inserted node has a parent and the parent is larger than it, swap them
-		while(hasParent(index) && getParent(index) > heap[index]) {
+		// while the inserted node has a parent and the parent is smaller than it, swap them
+		while(hasParent(index) && getParent(index) < heap[index]) {
 			swap(getParentIndex(index), index);
 			index = getParentIndex(index); //  check for each parent
 		}
 		
 	}
 	
-	// HeapifyDown - used when deleting root(min) value in heap,
-	// will sink down value until min heap property is restored
+	// HeapifyDown - used when deleting root(max) value in heap,
+	// will sink down value until max heap property is restored
 	public void heapifyDown() {
 		
 		//the index of root, which is holding the recent replacement of recently removed root
 		int index = 0;
 		
-		// while this index has children, swap with the smaller of the 2 children
+		// while this index has children, swap with the larger of the 2 children
 		while(hasLeftChild(index)) {
 			
-			// holds the index of the child which has the min value of the 2
-			int smallerChildIndex = getLeftChildIndex(index);
+			// holds the index of the child which has the max value of the 2
+			int largerChildIndex = getLeftChildIndex(index);
 			
-			// if right child is smaller than left, right's index becomes smallerChildIndex
-			if(hasRightChild(index) && getRightChild(index) < getLeftChild(index)) {
-				smallerChildIndex = getRightChildIndex(index);
+			// if right child is larger than left, right's index becomes largerChildIndex
+			if(hasRightChild(index) && getRightChild(index) > getLeftChild(index)) {
+				largerChildIndex = getRightChildIndex(index);
 			}
 			
 			
-			// if item is greater than its child, swap to maintain min heap property
-			if(heap[index] < heap[smallerChildIndex]) {
+			// if item is smaller than its child, swap to maintain max heap property
+			if(heap[index] > heap[largerChildIndex]) {
 				break;
 			}
 			else {
-				swap(index, smallerChildIndex);	
+				swap(index, largerChildIndex);	
 			}
 
-			index = smallerChildIndex;
+			index = largerChildIndex;
 		}
 	}
 	
 	
 	//Helper methods
-	
+
 	// prints the heap array
 	public void print() {
-		System.out.println("Current Min Heap: (size: " + this.size() + ")" );
+		System.out.println("Current Max Heap: (size: " + this.size() + ")" );
 		for(int i = 0; i < size; i++) {
 			System.out.print(heap[i] + ", ");
 		}
@@ -130,7 +127,7 @@ public class MinHeap {
 			heap = Arrays.copyOf(heap, heap.length * 2);
 	}
 	
-	// Swap method - swaps parent node with current node for maintaining min heap property
+	// Swap method - swaps parent node with current node for maintaining max heap property
 	public void swap(int indexOne, int indexTwo) {
 		int temp = heap[indexOne];
 		heap[indexOne] = heap[indexTwo];
@@ -182,61 +179,65 @@ public class MinHeap {
 		return heap[getRightChildIndex(index)];
 	}
 	
+	
 	// execution
 	public static void main(String[] args) {
 		
-		// declare and instantiate a min heap with 10 slots.
-		MinHeap minHeap = new MinHeap(10);
+		// declare and instantiate a max heap with 10 slots.
+		MaxHeap maxHeap = new MaxHeap(10);
 		
 		// insert 10 items into heap
-		minHeap.insert(5);
-		minHeap.insert(9);
-		minHeap.insert(3);
-		minHeap.insert(4);
-		minHeap.insert(8);
-		minHeap.insert(10);
-		minHeap.insert(7);
-		minHeap.insert(6);
-		minHeap.insert(2);
-		minHeap.insert(1);
+		maxHeap.insert(5);
+		maxHeap.insert(9);
+		maxHeap.insert(3);
+		maxHeap.insert(4);
+		maxHeap.insert(8);
+		maxHeap.insert(10);
+		maxHeap.insert(7);
+		maxHeap.insert(6);
+		maxHeap.insert(2);
+		maxHeap.insert(1);
 		
 		// print heap
-		minHeap.print();
+		maxHeap.print();
 		
-		// get the min of heap
-		System.out.println("What is the mininum  of heap currently? " + minHeap.peek());
+		// get the max of heap
+		System.out.println("What is the maximum of heap currently? " + maxHeap.peek());
 		System.out.println();
 		
-		// remove the min of heap
-		System.out.println("Removing min of heap(root): " + minHeap.poll());
+		// remove the max of heap
+		System.out.println("Removing max of heap(root): " + maxHeap.poll());
 		System.out.println();
 	
 		// print heap
-		minHeap.print();
+		maxHeap.print();
 		
 		// check if it heap resizes after inserting past initial capacity of 10
-		minHeap.insert(22);
-		minHeap.insert(1);
+		maxHeap.insert(22);
+		maxHeap.insert(1);
 		
-		minHeap.print();
-		
+		maxHeap.print();
+
 	}
 
 }
 
 /*Output:
-Current Min Heap: (size: 10)
-1, 2, 5, 4, 3, 10, 7, 9, 6, 8, 
+Current Max Heap: (size: 10)
+10, 8, 9, 6, 5, 3, 7, 4, 2, 1, 
 
-What is the mininum  of heap currently? 1
+What is the maximum of heap currently? 10
 
-Removing min of heap(root): 1
+Removing max of heap(root): 10
 
-Current Min Heap: (size: 9)
-2, 3, 5, 4, 8, 10, 7, 9, 6, 
+Current Max Heap: (size: 9)
+9, 8, 7, 6, 5, 3, 1, 4, 2, 
 
-Current Min Heap: (size: 11)
-1, 2, 5, 4, 3, 10, 7, 9, 6, 22, 8,  
+Current Max Heap: (size: 11)
+22, 9, 7, 6, 8, 3, 1, 4, 2, 5, 1, 
  */
+
+
+
 
 
