@@ -214,7 +214,7 @@ public class MaxHeap {
 		
 		// check if it heap resizes after inserting past initial capacity of 10
 		maxHeap.insert(22);
-		maxHeap.insert(1);
+		maxHeap.insert(10);
 		
 		maxHeap.print();
 
@@ -234,7 +234,7 @@ Current Max Heap: (size: 9)
 9, 8, 7, 6, 5, 3, 1, 4, 2, 
 
 Current Max Heap: (size: 11)
-22, 9, 7, 6, 8, 3, 1, 4, 2, 5, 1, 
+22, 10, 7, 6, 9, 3, 1, 4, 2, 5, 8, 
  */
 
 
