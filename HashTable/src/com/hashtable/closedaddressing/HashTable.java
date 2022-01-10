@@ -106,8 +106,8 @@ public class HashTable {
 			System.out.println("Insert entry: ('" + key + ", " + value + "') @ index: " + index);
 			itemCount++;
 			
-			// auto resize if table is 3/4 full
-			if(itemCount >= hashTable.length * loadFactor)
+			// auto resize if table reaches or passes load factor of 3.0
+			if(itemCount/hashTable.length >= loadFactor)
 				resize();
 			
 			return;
@@ -505,4 +505,5 @@ INDEX | ENTRY
 
 
 Current size: 7
+
 */
