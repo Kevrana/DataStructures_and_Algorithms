@@ -1,6 +1,6 @@
 # DataStructures and Algorithms
 
-**Version 1.0.26**
+**Version 1.0.27**
 
 Repo of all of my implementations of the various Data Structures and Algorithms done in Java. All implementations have the output in comment block towards end of code.
 
@@ -12,7 +12,7 @@ Repo of all of my implementations of the various Data Structures and Algorithms 
 - Queues (Array-based, LinkedList-based, Circular Queue Array)
 - HashTables (Open Addressing: Linear Probing, Closed Addressing: Separate Chaining using LinkedLists)
 - Trees (Generic Tree, Binary Tree, Binary Search Tree, Binary MinHeap, Binary MaxHeap, Trie)
-- Graphs (Adjacency Matrix)
+- Graphs (Adjacency Matrix (unweighed directed graph), Adjacency List(unweighed undirected/directed graph))
 
 ## List of Algorithms Implemented:
 - (pending)
