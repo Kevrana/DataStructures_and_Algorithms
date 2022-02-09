@@ -122,6 +122,69 @@ public class Graph {
 	}
 	
 
+	public Set<String> BreathFirstSearch(String root){
+		
+		// Visit set lists out all of the vertices we have already visited
+		// to avoid being stuck in cycles/non-terminating loops
+		// Using a LinkedHashSet to maintain insertion order of visited vertices
+		Set<String> visited = new LinkedHashSet<>();
+		
+		
+		// queue for adding each node to visit as we go level by level till all nodes are visited
+		Queue<String> queue = new LinkedList<>();
+		
+		queue.add(root);
+		visited.add(root);
+		
+		
+		while(!queue.isEmpty()) {
+			
+			String curr = queue.remove(); // temp to store head of queue
+			
+			for(String s : this.getAdjVertices(curr)) {
+				
+				if(visited.add(s)) {
+					queue.add(s);
+				}
+			}
+		}
+		
+		return visited;
+	}
+	
+	
+	public Set<String> DepthFirstSearch(String root){
+		
+		// Visit set lists out all of the vertices we have already visited
+		// to avoid being stuck in cycles/non-terminating loops
+		// Using a LinkedHashSet to maintain insertion order of visited vertices
+		Set<String> visited = new LinkedHashSet<>();
+		
+		
+		// stack for adding each node to visit going deep into one path till it ends
+		Stack<String> stack = new Stack<>();
+		
+		stack.push(root);
+		
+		while(!stack.isEmpty()) {
+			
+			String curr = stack.pop(); // temp to store head of stack
+			
+			if(!visited.contains(curr)) {
+				visited.add(curr);
+				for(String s : this.getAdjVertices(curr))
+					stack.push(s);
+			}
+		}
+		
+		return visited;
+	}
+	
+	
+	
+	
+	
+	
 	public static void main(String[] args) {
 		
 		// create and instantiate a graph
@@ -160,6 +223,16 @@ public class Graph {
 		// get vertex and edge counts
 		graph.getVertexCount();
 		graph.getEdgeCount(true);
+		
+		
+		// Perform a BFS/DFS from "Malcolm"
+		System.out.println();
+		System.out.println("BFS from vertex 'Malcolm': " + graph.BreathFirstSearch("Malcolm"));
+		System.out.println("DFS from vertex 'Malcolm': " + graph.DepthFirstSearch("Malcolm"));
+		
+		// Perform a BFS/DFS from "Shepherd"
+		System.out.println("BFS from vertex 'Shepherd': " + graph.BreathFirstSearch("Shepherd"));
+		System.out.println("DFS from vertex 'Shepherd': " + graph.DepthFirstSearch("Shepherd"));
 		
 		
 		// checks to see if vertex exists
@@ -208,7 +281,6 @@ public class Graph {
 		
 	}
 
-
 }
 
 /*
@@ -227,6 +299,11 @@ Jayne => Malcolm, Kaylee,
 
 The # of vertices in this graph are: 9
 The # of edges in this graph are: 12
+
+BFS from vertex 'Malcolm': [Malcolm, Inara, Wash, Zoe, Jayne, Shepherd, Kaylee, River, Simon]
+DFS from vertex 'Malcolm': [Malcolm, Jayne, Kaylee, Shepherd, Simon, River, Inara, Zoe, Wash]
+BFS from vertex 'Shepherd': [Shepherd, Inara, River, Simon, Kaylee, Malcolm, Jayne, Wash, Zoe]
+DFS from vertex 'Shepherd': [Shepherd, Kaylee, Jayne, Malcolm, Zoe, Wash, Inara, Simon, River]
 
 Graph contains 'Shepherd' as a vertex
 
@@ -267,5 +344,6 @@ The # of vertices in this graph are: 8
 The # of edges in this graph are: 7
 
 Graph doesn't have an edge between 'Zoe' and 'Wash'
+
 
  */

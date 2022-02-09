@@ -1,6 +1,6 @@
 # DataStructures and Algorithms
 
-**Version 1.0.27**
+**Version 1.0.28**
 
 Repo of all of my implementations of the various Data Structures and Algorithms done in Java. All implementations have the output in comment block towards end of code.
 
@@ -15,7 +15,8 @@ Repo of all of my implementations of the various Data Structures and Algorithms 
 - Graphs (Adjacency Matrix (unweighed directed graph), Adjacency List(unweighed undirected/directed graph))
 
 ## List of Algorithms Implemented:
-- (pending)
+- Breadth First Search/Traversal (for Graph:Adjacency List)
+- Depth First Search/Traversal (for Graph:Adjacency List)
 
 
 
