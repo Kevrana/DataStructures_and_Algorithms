@@ -34,3 +34,9 @@ public class LinearSearch {
 	}
 
 }
+
+/*
+Array: [4, 11, 14, 6, 55, 22, 31, -25, 86, 42, 45, -17, -2, 81]
+Element found in array at index: 6
+
+*/
