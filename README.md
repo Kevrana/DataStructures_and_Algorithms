@@ -1,6 +1,6 @@
 # DataStructures and Algorithms
 
-**Version 1.0.33**
+**Version 1.0.34**
 
 Repo of all of my implementations of the various Data Structures and Algorithms done in Java. All implementations have the output in comment block towards end of code.
 
@@ -22,6 +22,7 @@ Repo of all of my implementations of the various Data Structures and Algorithms 
 - Insertion Sort
 - Selection Sort
 - Bubble Sort
+- Merge Sort
 
 
 
