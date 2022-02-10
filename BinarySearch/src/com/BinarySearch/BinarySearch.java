@@ -88,3 +88,24 @@ public class BinarySearch {
 	}
 
 }
+
+
+
+/*
+
+Array: [2, 4, 6, 11, 14, 17, 22, 25, 31, 42, 45, 55, 81, 86]
+(Recursive) Does the array contain '45': true
+(Recursive) Does the array contain '2': true
+(Recursive) Does the array contain '86': true
+(Recursive) Does the array contain '52': false
+
+(Iterative) Does the array contain '45': true
+(Iterative) Does the array contain '2': true
+(Iterative) Does the array contain '86': true
+(Iterative) Does the array contain '52': false
+
+
+*/
+
+
+
