@@ -1,6 +1,6 @@
 # DataStructures and Algorithms
 
-**Version 1.0.35**
+**Version 1.0.36**
 
 Repo of all of my implementations of the various Data Structures and Algorithms done in Java. All implementations have the output in comment block towards end of code.
 
